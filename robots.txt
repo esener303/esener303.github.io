@@ -1,0 +1,7 @@
+# robots.txt for michaldemczyszak.com
+
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://michaldemczyszak.com/sitemap.xml

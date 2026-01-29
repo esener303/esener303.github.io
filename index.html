@@ -1,82 +1,193 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://cdn.rawgit.com/lonekorean/gist-syntax-themes/848d6580/stylesheets/monokai.css">
-<title>Michał Demczyszak</title>
-<link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <!-- Basic Meta Tags -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Michał Demczyszak - Software Developer & Cloud Solutions Architect. Explore my portfolio, blog, and connect with me on LinkedIn, GitHub, and Instagram.">
+  <meta name="author" content="Michał Demczyszak">
+  <meta name="keywords" content="Michał Demczyszak, Software Developer, Cloud Solutions Architect, SharePoint Development, Portfolio">
+  <meta name="theme-color" content="#1a1a1a">
 
-<style>
-.fa {
-  
-  padding: 20px;
-  font-size: 30px;
-  width: 38px;
-  text-align: center;
-  text-decoration: none;
-  margin: 5px 2px;
-  word-spacing:13px
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://michaldemczyszak.com/">
+  <meta property="og:title" content="Michał Demczyszak - Software Developer & Cloud Solutions Architect">
+  <meta property="og:description" content="Software Developer & Cloud Solutions Architect specializing in SharePoint development and cloud solutions. Connect with me to explore my work and insights.">
+  <meta property="og:site_name" content="Michał Demczyszak">
+  <meta property="og:locale" content="en_US">
 
-}
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://michaldemczyszak.com/">
+  <meta name="twitter:title" content="Michał Demczyszak - Software Developer & Cloud Solutions Architect">
+  <meta name="twitter:description" content="Software Developer & Cloud Solutions Architect specializing in SharePoint development and cloud solutions.">
 
-.fa:hover {
-    opacity: 0.7;
-}
+  <title>Michał Demczyszak - Software Developer & Cloud Solutions Architect</title>
 
-.fa-twitter {
-  background: #bbcddb;
-  color: white;
-}
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 
-.fa-google {
-  background: #dd4b39;
-  color: white;
-}
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="/styles.css">
 
-.fa-linkedin {
-  background: #007bb5;
-  color: white;
-}
+  <!-- Preload critical images -->
+  <link rel="preload" as="image" href="/images/background-mobile.webp" media="(max-width: 767px)">
+  <link rel="preload" as="image" href="/images/background-tablet.webp" media="(min-width: 768px) and (max-width: 1023px)">
+  <link rel="preload" as="image" href="/images/background-desktop.webp" media="(min-width: 1024px) and (max-width: 1919px)">
+  <link rel="preload" as="image" href="/images/background-large.webp" media="(min-width: 1920px)">
 
-.fa-instagram {
-  background: #125688;
-  color: white;
-}
-
-.fa-soundcloud {
-  background: #ff5380;
-  color: white;
-}
-
-body, html {
-  height: 100%;
-  margin: 0;
-}
-
-.bg {
-  /* The image used */
-  background-image: url("/background2.jpg");
-
-  /* Full height */
-  height: 100%; 
-
-  /* Center and scale the image nicely */
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
- 
-
-}
-</style>
+  <!-- Structured Data (JSON-LD) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Michał Demczyszak",
+    "jobTitle": "Software Developer & Cloud Solutions Architect",
+    "url": "https://michaldemczyszak.com",
+    "sameAs": [
+      "https://www.linkedin.com/in/michaldemczyszak",
+      "https://github.com/esener303",
+      "https://www.instagram.com/3l3c7ro.ai/",
+      "https://sharepointdevelopmentblog.wordpress.com"
+    ],
+    "email": "esener303@gmail.com"
+  }
+  </script>
 </head>
 <body>
-<div class="bg">
-      <br>
-      <a href="mailto:esener303@gmail.com"><img src="/logos/gmail.svg" width="38" height="38" style="border:13px;margin:13px" ></a>
-      <a href="https://sharepointdevelopmentblog.wordpress.com"><img src="/logos/wp.png" width="38" height="38" style="border:13px;margin:13px" ></a>
-      <a href="https://www.linkedin.com/in/michaldemczyszak"><img src="/logos/linkedin.svg" width="38" height="38" style="border:13px;margin:13px" ></a>
-      <a href="https://github.com/esener303"><img src="/logos/github.svg" width="38" height="38" style="border:13px;margin:13px" ></a>
-      <a href="https://www.instagram.com/3l3c7ro.ai/"><img src="/logos/instagram.svg" width="38" height="38" style="border:13px;margin:13px" ></a>
-</div>
+  <!-- Background overlay for better text contrast -->
+  <div class="background-overlay" aria-hidden="true"></div>
+
+  <!-- Main content -->
+  <main id="main-content" role="main">
+    <!-- Site header with profile -->
+    <header class="site-header">
+      <h1 class="visually-hidden">Michał Demczyszak - Portfolio</h1>
+      <div class="profile-section">
+        <h2 class="name">Michał Demczyszak</h2>
+        <p class="tagline">Software Developer & Cloud Solutions Architect</p>
+      </div>
+    </header>
+
+    <!-- Social media navigation -->
+    <nav aria-label="Social media and contact links" class="social-nav">
+      <ul class="social-links">
+        <li>
+          <a href="mailto:esener303@gmail.com"
+             class="social-link"
+             aria-label="Send email to Michał Demczyszak">
+            <img src="/logos/gmail.svg"
+                 alt=""
+                 class="social-icon"
+                 width="38"
+                 height="38"
+                 loading="lazy">
+            <span class="visually-hidden">Email</span>
+          </a>
+        </li>
+        <li>
+          <a href="https://sharepointdevelopmentblog.wordpress.com"
+             class="social-link"
+             target="_blank"
+             rel="noopener noreferrer"
+             aria-label="Visit Michał Demczyszak's SharePoint Development Blog on WordPress (opens in new tab)">
+            <img src="/logos/wp.png"
+                 alt=""
+                 class="social-icon"
+                 width="38"
+                 height="38"
+                 loading="lazy">
+            <span class="visually-hidden">Blog</span>
+          </a>
+        </li>
+        <li>
+          <a href="https://www.linkedin.com/in/michaldemczyszak"
+             class="social-link"
+             target="_blank"
+             rel="noopener noreferrer"
+             aria-label="Connect with Michał Demczyszak on LinkedIn (opens in new tab)">
+            <img src="/logos/linkedin.svg"
+                 alt=""
+                 class="social-icon"
+                 width="38"
+                 height="38"
+                 loading="lazy">
+            <span class="visually-hidden">LinkedIn</span>
+          </a>
+        </li>
+        <li>
+          <a href="https://github.com/esener303"
+             class="social-link"
+             target="_blank"
+             rel="noopener noreferrer"
+             aria-label="View Michał Demczyszak's code repositories on GitHub (opens in new tab)">
+            <img src="/logos/github.svg"
+                 alt=""
+                 class="social-icon"
+                 width="38"
+                 height="38"
+                 loading="lazy">
+            <span class="visually-hidden">GitHub</span>
+          </a>
+        </li>
+        <li>
+          <a href="https://www.instagram.com/3l3c7ro.ai/"
+             class="social-link"
+             target="_blank"
+             rel="noopener noreferrer"
+             aria-label="Follow Michał Demczyszak on Instagram @3l3c7ro.ai (opens in new tab)">
+            <img src="/logos/instagram.svg"
+                 alt=""
+                 class="social-icon"
+                 width="38"
+                 height="38"
+                 loading="lazy">
+            <span class="visually-hidden">Instagram</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+      <p>&copy; <span id="current-year"></span> Michał Demczyszak. All rights reserved.</p>
+    </footer>
+  </main>
+
+  <!-- Minimal JavaScript for enhancements -->
+  <script>
+    // Set current year dynamically
+    document.getElementById('current-year').textContent = new Date().getFullYear();
+
+    // Detect WebP support and add class to body
+    function supportsWebP() {
+      const elem = document.createElement('canvas');
+      if (elem.getContext && elem.getContext('2d')) {
+        return elem.toDataURL('image/webp').indexOf('data:image/webp') === 0;
+      }
+      return false;
+    }
+
+    if (supportsWebP()) {
+      document.body.classList.add('webp');
+    }
+
+    // Detect reduced motion preference
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (prefersReducedMotion) {
+      document.body.classList.add('reduce-motion');
+    }
+
+    // Skip to main content functionality (accessibility enhancement)
+    document.addEventListener('DOMContentLoaded', function() {
+      // Focus main content when skip link is used (if we add one in the future)
+      const mainContent = document.getElementById('main-content');
+      if (mainContent && location.hash === '#main-content') {
+        mainContent.focus();
+      }
+    });
+  </script>
 </body>
 </html>

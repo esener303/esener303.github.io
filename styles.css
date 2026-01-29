@@ -1,0 +1,424 @@
+/* ============================================
+   Modern Portfolio Stylesheet
+   Author: Michał Demczyszak
+   Last Updated: 2026-01-29
+   ============================================ */
+
+/* ============================================
+   CSS Custom Properties (Design Tokens)
+   ============================================ */
+:root {
+  /* Colors */
+  --color-primary: #ffffff;
+  --color-secondary: rgba(255, 255, 255, 0.9);
+  --color-accent: #007bb5;
+  --color-background-overlay: rgba(0, 0, 0, 0.4);
+  --color-glass-bg: rgba(255, 255, 255, 0.1);
+  --color-glass-border: rgba(255, 255, 255, 0.2);
+  --color-shadow: rgba(0, 0, 0, 0.3);
+  --color-focus: #4a9eff;
+
+  /* Spacing */
+  --spacing-xs: 0.5rem;
+  --spacing-sm: 1rem;
+  --spacing-md: 1.5rem;
+  --spacing-lg: 2rem;
+  --spacing-xl: 3rem;
+
+  /* Typography */
+  --font-family-base: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-size-base: 1rem;
+  --font-size-lg: 1.25rem;
+  --font-size-xl: 1.5rem;
+  --font-size-2xl: 2rem;
+  --font-size-3xl: 3rem;
+  --line-height-base: 1.6;
+  --line-height-tight: 1.2;
+
+  /* Sizes */
+  --touch-target-min: 60px;
+  --border-radius: 12px;
+  --border-radius-sm: 8px;
+
+  /* Effects */
+  --transition-speed: 0.3s;
+  --backdrop-blur: 10px;
+  --shadow-sm: 0 2px 4px var(--color-shadow);
+  --shadow-md: 0 4px 8px var(--color-shadow);
+  --shadow-lg: 0 8px 16px var(--color-shadow);
+}
+
+/* High Contrast Mode Support */
+@media (prefers-contrast: high) {
+  :root {
+    --color-background-overlay: rgba(0, 0, 0, 0.7);
+    --color-glass-bg: rgba(255, 255, 255, 0.2);
+  }
+}
+
+/* ============================================
+   Modern CSS Reset
+   ============================================ */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: var(--font-family-base);
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-base);
+  color: var(--color-primary);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+img, picture, video, canvas, svg {
+  display: block;
+  max-width: 100%;
+}
+
+input, button, textarea, select {
+  font: inherit;
+}
+
+p, h1, h2, h3, h4, h5, h6 {
+  overflow-wrap: break-word;
+}
+
+/* ============================================
+   Background with Responsive Images
+   ============================================ */
+body {
+  position: relative;
+  background-color: #1a1a1a;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+/* Mobile - default */
+body {
+  background-image: url('/images/background-mobile.jpg');
+}
+
+/* WebP support for mobile */
+.webp body {
+  background-image: url('/images/background-mobile.webp');
+}
+
+/* Tablet */
+@media (min-width: 768px) {
+  body {
+    background-image: url('/images/background-tablet.jpg');
+  }
+
+  .webp body {
+    background-image: url('/images/background-tablet.webp');
+  }
+}
+
+/* Desktop */
+@media (min-width: 1024px) {
+  body {
+    background-image: url('/images/background-desktop.jpg');
+  }
+
+  .webp body {
+    background-image: url('/images/background-desktop.webp');
+  }
+}
+
+/* Large screens */
+@media (min-width: 1920px) {
+  body {
+    background-image: url('/images/background-large.jpg');
+  }
+
+  .webp body {
+    background-image: url('/images/background-large.webp');
+  }
+}
+
+/* Background overlay for better text contrast */
+.background-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    to bottom,
+    var(--color-background-overlay) 0%,
+    transparent 50%,
+    var(--color-background-overlay) 100%
+  );
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* ============================================
+   Main Layout
+   ============================================ */
+main {
+  position: relative;
+  z-index: 2;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: var(--spacing-md);
+  gap: var(--spacing-lg);
+}
+
+/* ============================================
+   Header and Profile Section
+   ============================================ */
+.site-header {
+  text-align: center;
+  animation: fadeInUp 0.8s ease-out;
+}
+
+.profile-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-md);
+}
+
+.profile-image {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  border: 4px solid var(--color-primary);
+  box-shadow: var(--shadow-lg);
+  object-fit: cover;
+}
+
+.name {
+  font-size: var(--font-size-3xl);
+  font-weight: 700;
+  line-height: var(--line-height-tight);
+  text-shadow: var(--shadow-md);
+  letter-spacing: -0.02em;
+}
+
+.tagline {
+  font-size: var(--font-size-xl);
+  font-weight: 300;
+  color: var(--color-secondary);
+  text-shadow: var(--shadow-sm);
+}
+
+/* ============================================
+   Social Navigation
+   ============================================ */
+.social-nav {
+  animation: fadeInUp 0.8s ease-out 0.2s both;
+}
+
+.social-links {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--spacing-md);
+  padding: 0;
+}
+
+.social-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: var(--touch-target-min);
+  min-height: var(--touch-target-min);
+  padding: var(--spacing-sm) var(--spacing-md);
+  background: var(--color-glass-bg);
+  backdrop-filter: blur(var(--backdrop-blur));
+  -webkit-backdrop-filter: blur(var(--backdrop-blur));
+  border: 1px solid var(--color-glass-border);
+  border-radius: var(--border-radius);
+  color: var(--color-primary);
+  text-decoration: none;
+  transition: all var(--transition-speed) ease;
+  box-shadow: var(--shadow-md);
+}
+
+.social-link:hover,
+.social-link:focus {
+  transform: translateY(-4px) scale(1.05);
+  background: var(--color-glass-border);
+  box-shadow: var(--shadow-lg);
+}
+
+.social-link:focus {
+  outline: 3px solid var(--color-focus);
+  outline-offset: 2px;
+}
+
+.social-link:active {
+  transform: translateY(-2px) scale(1.02);
+}
+
+.social-icon {
+  width: 38px;
+  height: 38px;
+  filter: brightness(0) invert(1);
+  transition: filter var(--transition-speed) ease;
+}
+
+.social-link:hover .social-icon {
+  filter: brightness(0) invert(1) drop-shadow(0 0 8px rgba(255, 255, 255, 0.8));
+}
+
+/* Screen reader only text */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* ============================================
+   Footer
+   ============================================ */
+.site-footer {
+  text-align: center;
+  font-size: var(--font-size-base);
+  color: var(--color-secondary);
+  text-shadow: var(--shadow-sm);
+  animation: fadeInUp 0.8s ease-out 0.4s both;
+}
+
+.site-footer p {
+  margin: 0;
+}
+
+/* ============================================
+   Animations
+   ============================================ */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .social-link:hover,
+  .social-link:focus {
+    transform: none;
+  }
+}
+
+/* ============================================
+   Responsive Design - Mobile First
+   ============================================ */
+
+/* Small phones */
+@media (max-width: 374px) {
+  .name {
+    font-size: var(--font-size-2xl);
+  }
+
+  .tagline {
+    font-size: var(--font-size-lg);
+  }
+
+  .social-links {
+    gap: var(--spacing-sm);
+  }
+}
+
+/* Tablets and up */
+@media (min-width: 768px) {
+  main {
+    padding: var(--spacing-xl);
+    gap: var(--spacing-xl);
+  }
+
+  .profile-image {
+    width: 180px;
+    height: 180px;
+  }
+
+  .social-links {
+    gap: var(--spacing-lg);
+  }
+}
+
+/* Desktop and up */
+@media (min-width: 1024px) {
+  .name {
+    font-size: 4rem;
+  }
+
+  .tagline {
+    font-size: 2rem;
+  }
+
+  .profile-image {
+    width: 200px;
+    height: 200px;
+  }
+}
+
+/* Large screens */
+@media (min-width: 1920px) {
+  main {
+    gap: 4rem;
+  }
+}
+
+/* ============================================
+   Print Styles
+   ============================================ */
+@media print {
+  body {
+    background: white;
+    color: black;
+  }
+
+  .background-overlay {
+    display: none;
+  }
+
+  .social-link {
+    background: white;
+    border: 1px solid black;
+    color: black;
+  }
+
+  .social-icon {
+    filter: none;
+  }
+}
