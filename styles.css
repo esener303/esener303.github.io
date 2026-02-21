@@ -193,7 +193,7 @@ main {
    ============================================ */
 .site-header {
   text-align: center;
-  animation: fadeInUp 0.8s ease-out;
+  animation: slideUp 0.8s ease-out;
 }
 
 .profile-section {
@@ -338,6 +338,15 @@ main {
 /* ============================================
    Animations
    ============================================ */
+@keyframes slideUp {
+  from {
+    transform: translateY(30px);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
 @keyframes fadeInUp {
   from {
     opacity: 0;
