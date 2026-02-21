@@ -109,7 +109,7 @@ body {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  background-attachment: fixed;
+  background-attachment: scroll;
 }
 
 /* Mobile - default */
@@ -118,7 +118,7 @@ body {
 }
 
 /* WebP support for mobile */
-.webp body {
+body.webp {
   background-image: url('/images/background-mobile.webp');
 }
 
@@ -128,7 +128,7 @@ body {
     background-image: url('/images/background-tablet.jpg');
   }
 
-  .webp body {
+  body.webp {
     background-image: url('/images/background-tablet.webp');
   }
 }
@@ -137,9 +137,10 @@ body {
 @media (min-width: 1024px) {
   body {
     background-image: url('/images/background-desktop.jpg');
+    background-attachment: fixed;
   }
 
-  .webp body {
+  body.webp {
     background-image: url('/images/background-desktop.webp');
   }
 }
@@ -150,7 +151,7 @@ body {
     background-image: url('/images/background-large.jpg');
   }
 
-  .webp body {
+  body.webp {
     background-image: url('/images/background-large.webp');
   }
 }
@@ -285,6 +286,25 @@ main {
 
 .social-link:hover .social-icon {
   filter: brightness(0) invert(1) drop-shadow(0 0 8px rgba(255, 255, 255, 0.8));
+}
+
+/* Skip to content link (accessibility) */
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 100;
+  padding: var(--spacing-sm) var(--spacing-md);
+  background: var(--color-primary);
+  color: #1a1a1a;
+  font-weight: 700;
+  text-decoration: none;
+  border-radius: var(--border-radius-sm);
+}
+
+.skip-link:focus {
+  top: var(--spacing-sm);
 }
 
 /* Screen reader only text */
