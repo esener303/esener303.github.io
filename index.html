@@ -34,6 +34,11 @@
 
   <!-- Inlined stylesheet (eliminates render-blocking request) -->
   <style>
+@property --border-angle {
+  syntax: '<angle>';
+  initial-value: 0deg;
+  inherits: false;
+}
 :root {
   --color-primary: #ffffff;
   --color-secondary: rgba(255, 255, 255, 0.9);
@@ -86,28 +91,41 @@ body {
   overflow-x: hidden;
   position: relative;
   background-color: #1a1a1a;
+}
+img, picture, video, canvas, svg { display: block; max-width: 100%; }
+input, button, textarea, select { font: inherit; }
+p, h1, h2, h3, h4, h5, h6 { overflow-wrap: break-word; }
+
+/* Background scene with Ken Burns effect */
+.background-scene {
+  position: fixed; top: 0; left: 0; right: 0; bottom: 0;
   background-image: url('/images/background-mobile.jpg');
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: scroll;
+  animation: kenBurns 25s ease-in-out infinite alternate;
+  transform-origin: center center;
+  z-index: 0;
 }
-body.webp { background-image: url('/images/background-mobile.webp'); }
-img, picture, video, canvas, svg { display: block; max-width: 100%; }
-input, button, textarea, select { font: inherit; }
-p, h1, h2, h3, h4, h5, h6 { overflow-wrap: break-word; }
+.background-scene.webp { background-image: url('/images/background-mobile.webp'); }
 @media (min-width: 768px) {
-  body { background-image: url('/images/background-tablet.jpg'); }
-  body.webp { background-image: url('/images/background-tablet.webp'); }
+  .background-scene { background-image: url('/images/background-tablet.jpg'); }
+  .background-scene.webp { background-image: url('/images/background-tablet.webp'); }
 }
 @media (min-width: 1024px) {
-  body { background-image: url('/images/background-desktop.jpg'); background-attachment: fixed; }
-  body.webp { background-image: url('/images/background-desktop.webp'); }
+  .background-scene { background-image: url('/images/background-desktop.jpg'); }
+  .background-scene.webp { background-image: url('/images/background-desktop.webp'); }
 }
 @media (min-width: 1920px) {
-  body { background-image: url('/images/background-large.jpg'); }
-  body.webp { background-image: url('/images/background-large.webp'); }
+  .background-scene { background-image: url('/images/background-large.jpg'); }
+  .background-scene.webp { background-image: url('/images/background-large.webp'); }
 }
+@keyframes kenBurns {
+  0% { transform: scale(1) translate(0, 0); }
+  100% { transform: scale(1.08) translate(-0.5%, -0.5%); }
+}
+
 .background-overlay {
   position: fixed; top: 0; left: 0; right: 0; bottom: 0;
   background: linear-gradient(to bottom, var(--color-background-overlay) 0%, transparent 50%, var(--color-background-overlay) 100%);
@@ -120,13 +138,61 @@ main {
 }
 .site-header { text-align: center; animation: slideUp 0.8s ease-out; }
 .profile-section { display: flex; flex-direction: column; align-items: center; gap: var(--spacing-md); }
-.profile-image { width: 150px; height: 150px; border-radius: 50%; border: 4px solid var(--color-primary); box-shadow: var(--shadow-lg); object-fit: cover; }
-.name { font-size: var(--font-size-3xl); font-weight: 700; line-height: var(--line-height-tight); text-shadow: var(--text-shadow-strong); letter-spacing: -0.02em; }
+
+/* Animated gradient border for profile image */
+.profile-image-wrapper {
+  position: relative;
+  width: 158px; height: 158px;
+  border-radius: 50%;
+  padding: 4px;
+  background: conic-gradient(from var(--border-angle), #007bb5, #e1306c, #6e5494, #d44638, #007bb5);
+  animation: rotateBorder 4s linear infinite;
+  box-shadow: var(--shadow-lg);
+}
+@keyframes rotateBorder {
+  0% { --border-angle: 0deg; }
+  100% { --border-angle: 360deg; }
+}
+.profile-image {
+  width: 100%; height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Gradient shimmer on name */
+.name {
+  font-size: var(--font-size-3xl); font-weight: 700; line-height: var(--line-height-tight);
+  letter-spacing: -0.02em;
+  background: linear-gradient(135deg, #ffffff 0%, #a8d8ff 40%, #ffffff 60%, #c4b5fd 80%, #ffffff 100%);
+  background-size: 300% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shimmer 8s ease-in-out infinite;
+  filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.6));
+}
+@keyframes shimmer {
+  0%, 100% { background-position: 0% center; }
+  50% { background-position: 300% center; }
+}
+
 .tagline { font-size: var(--font-size-xl); font-weight: 300; color: var(--color-secondary); text-shadow: var(--text-shadow-medium); }
 .social-nav { animation: fadeInUp 0.8s ease-out 0.2s both; }
 .social-links { list-style: none; display: flex; flex-wrap: wrap; justify-content: center; gap: var(--spacing-md); padding: 0; }
+
+/* Staggered entrance for social links */
+.social-links li {
+  animation: fadeInUp 0.6s ease-out both;
+}
+.social-links li:nth-child(1) { animation-delay: 0.3s; }
+.social-links li:nth-child(2) { animation-delay: 0.4s; }
+.social-links li:nth-child(3) { animation-delay: 0.5s; }
+.social-links li:nth-child(4) { animation-delay: 0.6s; }
+.social-links li:nth-child(5) { animation-delay: 0.7s; }
+
 .social-link {
-  display: flex; align-items: center; justify-content: center;
+  display: flex; align-items: center; justify-content: center; gap: 0.5rem;
   min-width: var(--touch-target-min); min-height: var(--touch-target-min);
   padding: var(--spacing-sm) var(--spacing-md);
   background: var(--color-glass-bg);
@@ -135,11 +201,34 @@ main {
   color: var(--color-primary); text-decoration: none;
   transition: all var(--transition-speed) ease; box-shadow: var(--shadow-md);
 }
-.social-link:hover, .social-link:focus { transform: translateY(-4px) scale(1.05); background: var(--color-glass-border); box-shadow: var(--shadow-lg); }
+.social-link:hover, .social-link:focus { transform: translateY(-4px) scale(1.05); box-shadow: var(--shadow-lg); }
 .social-link:focus { outline: 3px solid var(--color-focus); outline-offset: 2px; }
 .social-link:active { transform: translateY(-2px) scale(1.02); }
-.social-icon { width: 38px; height: 38px; filter: brightness(0) invert(1); transition: filter var(--transition-speed) ease; }
+
+/* Per-platform hover colors */
+.social-link[data-platform="email"]:hover,
+.social-link[data-platform="email"]:focus { background: rgba(212, 70, 56, 0.25); border-color: rgba(212, 70, 56, 0.5); }
+.social-link[data-platform="blog"]:hover,
+.social-link[data-platform="blog"]:focus { background: rgba(33, 117, 155, 0.25); border-color: rgba(33, 117, 155, 0.5); }
+.social-link[data-platform="linkedin"]:hover,
+.social-link[data-platform="linkedin"]:focus { background: rgba(0, 123, 181, 0.25); border-color: rgba(0, 123, 181, 0.5); }
+.social-link[data-platform="github"]:hover,
+.social-link[data-platform="github"]:focus { background: rgba(110, 84, 148, 0.25); border-color: rgba(110, 84, 148, 0.5); }
+.social-link[data-platform="instagram"]:hover,
+.social-link[data-platform="instagram"]:focus { background: rgba(225, 48, 108, 0.25); border-color: rgba(225, 48, 108, 0.5); }
+
+.social-icon { width: 38px; height: 38px; filter: brightness(0) invert(1); transition: filter var(--transition-speed) ease; flex-shrink: 0; }
 .social-link:hover .social-icon { filter: brightness(0) invert(1) drop-shadow(0 0 8px rgba(255, 255, 255, 0.8)); }
+
+/* Visible labels for social links */
+.social-label {
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  text-shadow: var(--text-shadow-light);
+}
+
 .skip-link { position: absolute; top: -100%; left: 50%; transform: translateX(-50%); z-index: 100; padding: var(--spacing-sm) var(--spacing-md); background: var(--color-primary); color: #1a1a1a; font-weight: 700; text-decoration: none; border-radius: var(--border-radius-sm); }
 .skip-link:focus { top: var(--spacing-sm); }
 .visually-hidden { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border-width: 0; }
@@ -150,12 +239,28 @@ main {
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
   .social-link:hover, .social-link:focus { transform: none; }
+  .background-scene { animation: none !important; }
+  .profile-image-wrapper { animation: none !important; }
+  .name { animation: none !important; }
 }
-@media (max-width: 374px) { .name { font-size: var(--font-size-2xl); } .tagline { font-size: var(--font-size-lg); } .social-links { gap: var(--spacing-sm); } }
-@media (min-width: 768px) { main { padding: var(--spacing-xl); gap: var(--spacing-xl); } .profile-image { width: 180px; height: 180px; } .social-links { gap: var(--spacing-lg); } }
-@media (min-width: 1024px) { .name { font-size: 4rem; } .tagline { font-size: 2rem; } .profile-image { width: 200px; height: 200px; } }
+@media (max-width: 374px) {
+  .name { font-size: var(--font-size-2xl); }
+  .tagline { font-size: var(--font-size-lg); }
+  .social-links { gap: var(--spacing-sm); }
+  .social-label { display: none; }
+}
+@media (min-width: 768px) {
+  main { padding: var(--spacing-xl); gap: var(--spacing-xl); }
+  .profile-image-wrapper { width: 188px; height: 188px; }
+  .social-links { gap: var(--spacing-lg); }
+}
+@media (min-width: 1024px) {
+  .name { font-size: 4rem; }
+  .tagline { font-size: 2rem; }
+  .profile-image-wrapper { width: 208px; height: 208px; }
+}
 @media (min-width: 1920px) { main { gap: 4rem; } }
-@media print { body { background: white; color: black; } .background-overlay { display: none; } .social-link { background: white; border: 1px solid black; color: black; } .social-icon { filter: none; } }
+@media print { body { background: white; color: black; } .background-scene, .background-overlay { display: none; } .social-link { background: white; border: 1px solid black; color: black; } .social-icon { filter: none; } .name { -webkit-text-fill-color: black; background: none; } }
   </style>
 
   <!-- Preload critical images -->
@@ -185,6 +290,9 @@ main {
 <body>
   <a href="#main-content" class="skip-link">Skip to main content</a>
 
+  <!-- Background with Ken Burns effect -->
+  <div class="background-scene" aria-hidden="true"></div>
+
   <!-- Background overlay for better text contrast -->
   <div class="background-overlay" aria-hidden="true"></div>
 
@@ -205,6 +313,8 @@ main {
         <li>
           <a href="mailto:esener303@gmail.com"
              class="social-link"
+             data-platform="email"
+             title="Send email"
              aria-label="Send email to Michał Demczyszak">
             <img src="/logos/gmail.svg"
                  alt=""
@@ -212,12 +322,14 @@ main {
                  width="38"
                  height="38"
                  loading="lazy">
-            <span class="visually-hidden">Email</span>
+            <span class="social-label">Email</span>
           </a>
         </li>
         <li>
           <a href="https://sharepointdevelopmentblog.wordpress.com"
              class="social-link"
+             data-platform="blog"
+             title="SharePoint Development Blog"
              target="_blank"
              rel="noopener noreferrer"
              aria-label="Visit Michał Demczyszak's SharePoint Development Blog on WordPress (opens in new tab)">
@@ -227,12 +339,14 @@ main {
                  width="38"
                  height="38"
                  loading="lazy">
-            <span class="visually-hidden">Blog</span>
+            <span class="social-label">Blog</span>
           </a>
         </li>
         <li>
           <a href="https://www.linkedin.com/in/michaldemczyszak"
              class="social-link"
+             data-platform="linkedin"
+             title="LinkedIn profile"
              target="_blank"
              rel="noopener noreferrer"
              aria-label="Connect with Michał Demczyszak on LinkedIn (opens in new tab)">
@@ -242,12 +356,14 @@ main {
                  width="38"
                  height="38"
                  loading="lazy">
-            <span class="visually-hidden">LinkedIn</span>
+            <span class="social-label">LinkedIn</span>
           </a>
         </li>
         <li>
           <a href="https://github.com/esener303"
              class="social-link"
+             data-platform="github"
+             title="GitHub repositories"
              target="_blank"
              rel="noopener noreferrer"
              aria-label="View Michał Demczyszak's code repositories on GitHub (opens in new tab)">
@@ -257,12 +373,14 @@ main {
                  width="38"
                  height="38"
                  loading="lazy">
-            <span class="visually-hidden">GitHub</span>
+            <span class="social-label">GitHub</span>
           </a>
         </li>
         <li>
           <a href="https://www.instagram.com/3l3c7ro.ai/"
              class="social-link"
+             data-platform="instagram"
+             title="Instagram @3l3c7ro.ai"
              target="_blank"
              rel="noopener noreferrer"
              aria-label="Follow Michał Demczyszak on Instagram @3l3c7ro.ai (opens in new tab)">
@@ -272,7 +390,7 @@ main {
                  width="38"
                  height="38"
                  loading="lazy">
-            <span class="visually-hidden">Instagram</span>
+            <span class="social-label">Instagram</span>
           </a>
         </li>
       </ul>
@@ -289,7 +407,7 @@ main {
     // Set current year dynamically
     document.getElementById('current-year').textContent = new Date().getFullYear();
 
-    // Detect WebP support and add class to body
+    // Detect WebP support and add class to background scene
     function supportsWebP() {
       const elem = document.createElement('canvas');
       if (elem.getContext && elem.getContext('2d')) {
@@ -299,7 +417,8 @@ main {
     }
 
     if (supportsWebP()) {
-      document.body.classList.add('webp');
+      var bgScene = document.querySelector('.background-scene');
+      if (bgScene) bgScene.classList.add('webp');
     }
 
     // Detect reduced motion preference
@@ -310,8 +429,7 @@ main {
 
     // Skip to main content functionality (accessibility enhancement)
     document.addEventListener('DOMContentLoaded', function() {
-      // Focus main content when skip link is used (if we add one in the future)
-      const mainContent = document.getElementById('main-content');
+      var mainContent = document.getElementById('main-content');
       if (mainContent && location.hash === '#main-content') {
         mainContent.focus();
       }
