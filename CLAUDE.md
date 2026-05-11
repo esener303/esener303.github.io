@@ -8,12 +8,10 @@ This is a static personal portfolio website for Michał Demczyszak (michaldemczy
 
 ## Architecture
 
-**Single-file static site**: The entire website is contained in `index.html` with inline CSS styling. No JavaScript framework or build tools are used.
+**Static site**: The site is `index.html` with `styles.css` and `script.js`. No build tools or JS framework. All icons are inline SVG.
 
 **Assets**:
-- `/background2.jpg` - Current background image (also `/back.jpg` available)
-- `/logos/` - Social media icons (SVG and PNG formats): gmail, linkedin, github, instagram, wordpress, twitter, credly
-- `/favicon*` - Site favicon in multiple formats
+- `favicon.svg` - Site favicon
 
 **Social Links**: The site displays links to:
 - Email (gmail)
@@ -44,9 +42,10 @@ Since this is a static HTML site:
 
 ## File Structure
 
-- `index.html` - Main and only HTML page
+- `index.html` - Main HTML page
+- `styles.css` - Site styles
+- `script.js` - Matrix background, typed role, scroll reveal, nav toggle
+- `favicon.svg` - Site favicon
 - `CNAME` - Custom domain configuration
-- `logos/` - Social media icons
-- `background2.jpg`, `back.jpg` - Background images
-- `favicon*` - Site favicons
+- `robots.txt`, `sitemap.xml` - SEO
 - `.github/workflows/` - CI/CD configurations
