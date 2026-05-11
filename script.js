@@ -132,9 +132,10 @@
     const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     if (canvas && !prefersReduced) {
         const ctx = canvas.getContext('2d');
-        const chars = '01{}<>/[]()=+-*&|!?;:_$#@AZUREDEVOPS'.split('');
+        const chars = 'ｱｲｳｴｵｶｷｸｹｺｻｼｽｾｿﾀﾁﾂﾃﾄﾅﾆﾇﾈﾉﾊﾋﾌﾍﾎﾏﾐﾑﾒﾓﾔﾕﾖﾗﾘﾙﾚﾛﾜﾝ01{}<>/[]()=+-*$#@'.split('');
         let columns = 0;
         let drops = [];
+        let prevChar = [];
         const FONT_SIZE = 14;
 
         function resize() {
@@ -142,20 +143,29 @@
             canvas.height = window.innerHeight;
             columns = Math.floor(canvas.width / FONT_SIZE);
             drops = new Array(columns).fill(0).map(() => Math.random() * -50);
+            prevChar = new Array(columns).fill('');
         }
 
         function draw() {
-            ctx.fillStyle = 'rgba(158, 167, 179, 0.08)';
+            ctx.fillStyle = 'rgba(158, 167, 179, 0.06)';
             ctx.fillRect(0, 0, canvas.width, canvas.height);
-            ctx.fillStyle = '#3a414a';
             ctx.font = FONT_SIZE + 'px JetBrains Mono, monospace';
             for (let i = 0; i < drops.length; i++) {
                 const ch = chars[Math.floor(Math.random() * chars.length)];
-                ctx.fillText(ch, i * FONT_SIZE, drops[i] * FONT_SIZE);
-                if (drops[i] * FONT_SIZE > canvas.height && Math.random() > 0.975) {
-                    drops[i] = 0;
+                const x = i * FONT_SIZE;
+                const y = drops[i] * FONT_SIZE;
+                if (prevChar[i]) {
+                    ctx.fillStyle = '#16a34a';
+                    ctx.fillText(prevChar[i], x, y - FONT_SIZE);
                 }
-                drops[i] += 0.5;
+                ctx.fillStyle = '#dcfce7';
+                ctx.fillText(ch, x, y);
+                prevChar[i] = ch;
+                if (y > canvas.height && Math.random() > 0.975) {
+                    drops[i] = 0;
+                    prevChar[i] = '';
+                }
+                drops[i] += 1;
             }
         }
 
