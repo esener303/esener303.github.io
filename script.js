@@ -145,9 +145,9 @@
         }
 
         function draw() {
-            ctx.fillStyle = 'rgba(19, 26, 46, 0.08)';
+            ctx.fillStyle = 'rgba(20, 22, 26, 0.08)';
             ctx.fillRect(0, 0, canvas.width, canvas.height);
-            ctx.fillStyle = '#64ffda';
+            ctx.fillStyle = '#c8cfd9';
             ctx.font = FONT_SIZE + 'px JetBrains Mono, monospace';
             for (let i = 0; i < drops.length; i++) {
                 const ch = chars[Math.floor(Math.random() * chars.length)];
