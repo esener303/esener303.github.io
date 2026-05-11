@@ -3,15 +3,15 @@
    ========================================================================== */
 
 :root {
-    --bg-0: #bcc4ce;
-    --bg-1: #adb5c0;
-    --bg-2: #9ea6b1;
-    --bg-3: #858d99;
-    --border: rgba(26, 29, 34, 0.18);
-    --border-strong: rgba(26, 29, 34, 0.35);
-    --text: #1a1d22;
-    --text-muted: #3b424b;
-    --text-dim: #5a6470;
+    --bg-0: #9ea7b3;
+    --bg-1: #8a939f;
+    --bg-2: #79828e;
+    --bg-3: #5e6772;
+    --border: rgba(20, 23, 28, 0.22);
+    --border-strong: rgba(20, 23, 28, 0.40);
+    --text: #15181d;
+    --text-muted: #2d343d;
+    --text-dim: #4a525e;
     --accent: #3a414a;
     --accent-2: #5a6470;
     --accent-3: #7a6f60;
@@ -30,7 +30,9 @@ html { scroll-behavior: smooth; }
 
 body {
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-    background: var(--bg-0);
+    background:
+        linear-gradient(180deg, #b0b9c5 0%, #9ea7b3 45%, #828b97 100%) fixed,
+        var(--bg-0);
     color: var(--text);
     line-height: 1.6;
     overflow-x: hidden;
@@ -43,9 +45,9 @@ body::before {
     position: fixed;
     inset: 0;
     background:
-        radial-gradient(circle at 20% 10%, rgba(208, 214, 222, 0.45), transparent 55%),
-        radial-gradient(circle at 85% 70%, rgba(110, 120, 134, 0.20), transparent 55%),
-        radial-gradient(circle at 50% 50%, rgba(122, 111, 96, 0.06), transparent 60%);
+        radial-gradient(circle at 20% 10%, rgba(196, 204, 214, 0.30), transparent 55%),
+        radial-gradient(circle at 85% 70%, rgba(78, 86, 96, 0.22), transparent 55%),
+        radial-gradient(circle at 50% 50%, rgba(122, 111, 96, 0.05), transparent 60%);
     z-index: -2;
     pointer-events: none;
 }
@@ -83,7 +85,7 @@ a:hover { color: var(--accent-2); }
     position: fixed;
     top: 0; left: 0; right: 0;
     z-index: 100;
-    background: rgba(188, 196, 206, 0.85);
+    background: rgba(158, 167, 179, 0.85);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
     border-bottom: 1px solid var(--border);
