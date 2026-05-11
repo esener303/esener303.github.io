@@ -3,11 +3,11 @@
 
     /* ---------- Typed role rotation ---------- */
     const roles = [
-        'DevOps Engineer',
+        'DevOps & Cloud Engineer',
         'Azure Cloud Solutions Architect',
-        'Infrastructure as Code Advocate',
-        'Kubernetes Enthusiast',
-        'CI/CD Automation Specialist'
+        'Cloud Security Engineer',
+        'GitOps & IaC Advocate',
+        'Kubernetes Enthusiast'
     ];
     const typedEl = document.getElementById('typed-role');
     if (typedEl) {
@@ -145,7 +145,7 @@
         }
 
         function draw() {
-            ctx.fillStyle = 'rgba(6, 9, 18, 0.08)';
+            ctx.fillStyle = 'rgba(19, 26, 46, 0.08)';
             ctx.fillRect(0, 0, canvas.width, canvas.height);
             ctx.fillStyle = '#64ffda';
             ctx.font = FONT_SIZE + 'px JetBrains Mono, monospace';
