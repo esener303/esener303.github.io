@@ -3,15 +3,15 @@
    ========================================================================== */
 
 :root {
-    --bg-0: #d8dde3;
-    --bg-1: #c4cad2;
-    --bg-2: #b3bac3;
-    --bg-3: #9da4ae;
-    --border: rgba(26, 29, 34, 0.14);
-    --border-strong: rgba(26, 29, 34, 0.30);
+    --bg-0: #bcc4ce;
+    --bg-1: #adb5c0;
+    --bg-2: #9ea6b1;
+    --bg-3: #858d99;
+    --border: rgba(26, 29, 34, 0.18);
+    --border-strong: rgba(26, 29, 34, 0.35);
     --text: #1a1d22;
-    --text-muted: #4b525c;
-    --text-dim: #6e7682;
+    --text-muted: #3b424b;
+    --text-dim: #5a6470;
     --accent: #3a414a;
     --accent-2: #5a6470;
     --accent-3: #7a6f60;
@@ -43,8 +43,8 @@ body::before {
     position: fixed;
     inset: 0;
     background:
-        radial-gradient(circle at 20% 10%, rgba(255, 255, 255, 0.55), transparent 55%),
-        radial-gradient(circle at 85% 70%, rgba(154, 163, 176, 0.22), transparent 55%),
+        radial-gradient(circle at 20% 10%, rgba(208, 214, 222, 0.45), transparent 55%),
+        radial-gradient(circle at 85% 70%, rgba(110, 120, 134, 0.20), transparent 55%),
         radial-gradient(circle at 50% 50%, rgba(122, 111, 96, 0.06), transparent 60%);
     z-index: -2;
     pointer-events: none;
@@ -83,7 +83,7 @@ a:hover { color: var(--accent-2); }
     position: fixed;
     top: 0; left: 0; right: 0;
     z-index: 100;
-    background: rgba(216, 221, 227, 0.82);
+    background: rgba(188, 196, 206, 0.85);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
     border-bottom: 1px solid var(--border);

@@ -145,7 +145,7 @@
         }
 
         function draw() {
-            ctx.fillStyle = 'rgba(216, 221, 227, 0.08)';
+            ctx.fillStyle = 'rgba(188, 196, 206, 0.08)';
             ctx.fillRect(0, 0, canvas.width, canvas.height);
             ctx.fillStyle = '#3a414a';
             ctx.font = FONT_SIZE + 'px JetBrains Mono, monospace';
