@@ -1,439 +1,353 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- Basic Meta Tags -->
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Michał Demczyszak - DevOps Engineer and Azure Cloud Solutions Architect. Explore my portfolio, blog, and connect with me on LinkedIn, GitHub, and Instagram.">
-  <meta name="author" content="Michał Demczyszak">
-  <meta name="keywords" content="Michał Demczyszak, Software Developer, Cloud Solutions Architect, SharePoint Development, Portfolio">
-  <meta name="theme-color" content="#1a1a1a">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Michał Demczyszak — DevOps Engineer and Azure Cloud Solutions Architect. Cloud architecture, automation, and reliable software delivery." />
+    <meta name="author" content="Michał Demczyszak" />
+    <meta name="keywords" content="Michał Demczyszak, DevOps Engineer, Azure Cloud Solutions Architect, Infrastructure as Code, Portfolio" />
+    <meta name="theme-color" content="#0a0e17" />
 
-  <!-- Open Graph / Facebook -->
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://michaldemczyszak.com/">
-  <meta property="og:title" content="Michał Demczyszak - DevOps Engineer and Azure Cloud Solutions Architect">
-  <meta property="og:description" content="DevOps Engineer and Azure Cloud Solutions Architect specializing in SharePoint development and cloud solutions. Connect with me to explore my work and insights.">
-  <meta property="og:site_name" content="Michał Demczyszak">
-  <meta property="og:locale" content="en_US">
-  <meta property="og:image" content="https://michaldemczyszak.com/images/background-desktop.jpg">
-  <meta property="og:image:width" content="1920">
-  <meta property="og:image:height" content="1080">
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://michaldemczyszak.com/" />
+    <meta property="og:title" content="Michał Demczyszak — DevOps Engineer and Azure Cloud Solutions Architect" />
+    <meta property="og:description" content="DevOps Engineer and Azure Cloud Solutions Architect specializing in cloud automation, infrastructure as code, and reliable software delivery." />
+    <meta property="og:site_name" content="Michał Demczyszak" />
+    <meta property="og:locale" content="en_US" />
 
-  <!-- Twitter -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:url" content="https://michaldemczyszak.com/">
-  <meta name="twitter:title" content="Michał Demczyszak - DevOps Engineer and Azure Cloud Solutions Architect">
-  <meta name="twitter:description" content="DevOps Engineer and Azure Cloud Solutions Architect specializing in SharePoint development and cloud solutions.">
-  <meta name="twitter:image" content="https://michaldemczyszak.com/images/background-desktop.jpg">
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content="https://michaldemczyszak.com/" />
+    <meta name="twitter:title" content="Michał Demczyszak — DevOps Engineer and Azure Cloud Solutions Architect" />
+    <meta name="twitter:description" content="DevOps Engineer and Azure Cloud Solutions Architect specializing in cloud automation and reliable software delivery." />
 
-  <title>Michał Demczyszak - DevOps Engineer and Azure Cloud Solutions Architect</title>
+    <title>Michał Demczyszak | DevOps Engineer &amp; Azure Cloud Solutions Architect</title>
 
-  <!-- Favicon -->
-  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
 
-  <!-- Inlined stylesheet (eliminates render-blocking request) -->
-  <style>
-@property --border-angle {
-  syntax: '<angle>';
-  initial-value: 0deg;
-  inherits: false;
-}
-:root {
-  --color-primary: #ffffff;
-  --color-secondary: rgba(255, 255, 255, 0.9);
-  --color-accent: #007bb5;
-  --color-background-overlay: rgba(0, 0, 0, 0.4);
-  --color-glass-bg: rgba(255, 255, 255, 0.1);
-  --color-glass-border: rgba(255, 255, 255, 0.2);
-  --color-shadow: rgba(0, 0, 0, 0.3);
-  --color-focus: #4a9eff;
-  --spacing-xs: 0.5rem;
-  --spacing-sm: 1rem;
-  --spacing-md: 1.5rem;
-  --spacing-lg: 2rem;
-  --spacing-xl: 3rem;
-  --font-family-base: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-  --font-size-base: 1rem;
-  --font-size-lg: 1.25rem;
-  --font-size-xl: 1.5rem;
-  --font-size-2xl: 2rem;
-  --font-size-3xl: 3rem;
-  --line-height-base: 1.6;
-  --line-height-tight: 1.2;
-  --touch-target-min: 60px;
-  --border-radius: 12px;
-  --border-radius-sm: 8px;
-  --transition-speed: 0.3s;
-  --backdrop-blur: 10px;
-  --shadow-sm: 0 2px 4px var(--color-shadow);
-  --shadow-md: 0 4px 8px var(--color-shadow);
-  --shadow-lg: 0 8px 16px var(--color-shadow);
-  --text-shadow-strong: 0 2px 8px rgba(0, 0, 0, 0.8), 0 4px 16px rgba(0, 0, 0, 0.6);
-  --text-shadow-medium: 0 2px 6px rgba(0, 0, 0, 0.7), 0 4px 12px rgba(0, 0, 0, 0.5);
-  --text-shadow-light: 0 2px 4px rgba(0, 0, 0, 0.6), 0 3px 8px rgba(0, 0, 0, 0.4);
-}
-@media (prefers-contrast: high) {
-  :root {
-    --color-background-overlay: rgba(0, 0, 0, 0.7);
-    --color-glass-bg: rgba(255, 255, 255, 0.2);
-  }
-}
-*, *::before, *::after { box-sizing: border-box; }
-* { margin: 0; padding: 0; }
-html { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
-body {
-  font-family: var(--font-family-base);
-  font-size: var(--font-size-base);
-  line-height: var(--line-height-base);
-  color: var(--color-primary);
-  min-height: 100vh;
-  overflow-x: hidden;
-  position: relative;
-  background-color: #1a1a1a;
-}
-img, picture, video, canvas, svg { display: block; max-width: 100%; }
-input, button, textarea, select { font: inherit; }
-p, h1, h2, h3, h4, h5, h6 { overflow-wrap: break-word; }
-
-/* Background scene with Ken Burns effect */
-.background-scene {
-  position: fixed; top: 0; left: 0; right: 0; bottom: 0;
-  background-image: url('/images/background-mobile.jpg');
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-attachment: scroll;
-  animation: kenBurns 25s ease-in-out infinite alternate;
-  transform-origin: center center;
-  z-index: 0;
-}
-.background-scene.webp { background-image: url('/images/background-mobile.webp'); }
-@media (min-width: 768px) {
-  .background-scene { background-image: url('/images/background-tablet.jpg'); }
-  .background-scene.webp { background-image: url('/images/background-tablet.webp'); }
-}
-@media (min-width: 1024px) {
-  .background-scene { background-image: url('/images/background-desktop.jpg'); }
-  .background-scene.webp { background-image: url('/images/background-desktop.webp'); }
-}
-@media (min-width: 1920px) {
-  .background-scene { background-image: url('/images/background-large.jpg'); }
-  .background-scene.webp { background-image: url('/images/background-large.webp'); }
-}
-@keyframes kenBurns {
-  0% { transform: scale(1) translate(0, 0); }
-  100% { transform: scale(1.08) translate(-0.5%, -0.5%); }
-}
-
-.background-overlay {
-  position: fixed; top: 0; left: 0; right: 0; bottom: 0;
-  background: linear-gradient(to bottom, var(--color-background-overlay) 0%, transparent 50%, var(--color-background-overlay) 100%);
-  pointer-events: none; z-index: 1;
-}
-main {
-  position: relative; z-index: 2; min-height: 100vh;
-  display: flex; flex-direction: column; align-items: center; justify-content: center;
-  padding: var(--spacing-md); gap: var(--spacing-lg);
-}
-.site-header { text-align: center; animation: slideUp 0.8s ease-out; }
-.profile-section { display: flex; flex-direction: column; align-items: center; gap: var(--spacing-md); }
-
-/* Animated gradient border for profile image */
-.profile-image-wrapper {
-  position: relative;
-  width: 158px; height: 158px;
-  border-radius: 50%;
-  padding: 4px;
-  background: conic-gradient(from var(--border-angle), #007bb5, #e1306c, #6e5494, #d44638, #007bb5);
-  animation: rotateBorder 4s linear infinite;
-  box-shadow: var(--shadow-lg);
-}
-@keyframes rotateBorder {
-  0% { --border-angle: 0deg; }
-  100% { --border-angle: 360deg; }
-}
-.profile-image {
-  width: 100%; height: 100%;
-  border-radius: 50%;
-  object-fit: cover;
-  display: block;
-}
-
-/* Gradient shimmer on name */
-.name {
-  font-size: var(--font-size-3xl); font-weight: 700; line-height: var(--line-height-tight);
-  letter-spacing: -0.02em;
-  background: linear-gradient(135deg, #ffffff 0%, #a8d8ff 40%, #ffffff 60%, #c4b5fd 80%, #ffffff 100%);
-  background-size: 300% auto;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  animation: shimmer 8s ease-in-out infinite;
-  filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.6));
-}
-@keyframes shimmer {
-  0%, 100% { background-position: 0% center; }
-  50% { background-position: 300% center; }
-}
-
-.tagline { font-size: var(--font-size-xl); font-weight: 300; color: var(--color-secondary); text-shadow: var(--text-shadow-medium); }
-.social-nav { animation: fadeInUp 0.8s ease-out 0.2s both; }
-.social-links { list-style: none; display: flex; flex-wrap: wrap; justify-content: center; gap: var(--spacing-md); padding: 0; }
-
-/* Staggered entrance for social links */
-.social-links li {
-  animation: fadeInUp 0.6s ease-out both;
-}
-.social-links li:nth-child(1) { animation-delay: 0.3s; }
-.social-links li:nth-child(2) { animation-delay: 0.4s; }
-.social-links li:nth-child(3) { animation-delay: 0.5s; }
-.social-links li:nth-child(4) { animation-delay: 0.6s; }
-.social-links li:nth-child(5) { animation-delay: 0.7s; }
-
-.social-link {
-  display: flex; align-items: center; justify-content: center; gap: 0.5rem;
-  min-width: var(--touch-target-min); min-height: var(--touch-target-min);
-  padding: var(--spacing-sm) var(--spacing-md);
-  background: var(--color-glass-bg);
-  backdrop-filter: blur(var(--backdrop-blur)); -webkit-backdrop-filter: blur(var(--backdrop-blur));
-  border: 1px solid var(--color-glass-border); border-radius: var(--border-radius);
-  color: var(--color-primary); text-decoration: none;
-  transition: all var(--transition-speed) ease; box-shadow: var(--shadow-md);
-}
-.social-link:hover, .social-link:focus { transform: translateY(-4px) scale(1.05); box-shadow: var(--shadow-lg); }
-.social-link:focus { outline: 3px solid var(--color-focus); outline-offset: 2px; }
-.social-link:active { transform: translateY(-2px) scale(1.02); }
-
-/* Per-platform hover colors */
-.social-link[data-platform="email"]:hover,
-.social-link[data-platform="email"]:focus { background: rgba(212, 70, 56, 0.25); border-color: rgba(212, 70, 56, 0.5); }
-.social-link[data-platform="blog"]:hover,
-.social-link[data-platform="blog"]:focus { background: rgba(33, 117, 155, 0.25); border-color: rgba(33, 117, 155, 0.5); }
-.social-link[data-platform="linkedin"]:hover,
-.social-link[data-platform="linkedin"]:focus { background: rgba(0, 123, 181, 0.25); border-color: rgba(0, 123, 181, 0.5); }
-.social-link[data-platform="github"]:hover,
-.social-link[data-platform="github"]:focus { background: rgba(110, 84, 148, 0.25); border-color: rgba(110, 84, 148, 0.5); }
-.social-link[data-platform="instagram"]:hover,
-.social-link[data-platform="instagram"]:focus { background: rgba(225, 48, 108, 0.25); border-color: rgba(225, 48, 108, 0.5); }
-
-.social-icon { width: 38px; height: 38px; filter: brightness(0) invert(1); transition: filter var(--transition-speed) ease; flex-shrink: 0; }
-.social-link:hover .social-icon { filter: brightness(0) invert(1) drop-shadow(0 0 8px rgba(255, 255, 255, 0.8)); }
-
-/* Visible labels for social links */
-.social-label {
-  font-size: 0.8rem;
-  font-weight: 500;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-  text-shadow: var(--text-shadow-light);
-}
-
-.skip-link { position: absolute; top: -100%; left: 50%; transform: translateX(-50%); z-index: 100; padding: var(--spacing-sm) var(--spacing-md); background: var(--color-primary); color: #1a1a1a; font-weight: 700; text-decoration: none; border-radius: var(--border-radius-sm); }
-.skip-link:focus { top: var(--spacing-sm); }
-.visually-hidden { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border-width: 0; }
-.site-footer { text-align: center; font-size: var(--font-size-base); color: var(--color-secondary); text-shadow: var(--text-shadow-light); animation: fadeInUp 0.8s ease-out 0.4s both; }
-.site-footer p { margin: 0; }
-@keyframes slideUp { from { transform: translateY(30px); } to { transform: translateY(0); } }
-@keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
-@media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
-  .social-link:hover, .social-link:focus { transform: none; }
-  .background-scene { animation: none !important; }
-  .profile-image-wrapper { animation: none !important; }
-  .name { animation: none !important; }
-}
-@media (max-width: 374px) {
-  .name { font-size: var(--font-size-2xl); }
-  .tagline { font-size: var(--font-size-lg); }
-  .social-links { gap: var(--spacing-sm); }
-  .social-label { display: none; }
-}
-@media (min-width: 768px) {
-  main { padding: var(--spacing-xl); gap: var(--spacing-xl); }
-  .profile-image-wrapper { width: 188px; height: 188px; }
-  .social-links { gap: var(--spacing-lg); }
-}
-@media (min-width: 1024px) {
-  .name { font-size: 4rem; }
-  .tagline { font-size: 2rem; }
-  .profile-image-wrapper { width: 208px; height: 208px; }
-}
-@media (min-width: 1920px) { main { gap: 4rem; } }
-@media print { body { background: white; color: black; } .background-scene, .background-overlay { display: none; } .social-link { background: white; border: 1px solid black; color: black; } .social-icon { filter: none; } .name { -webkit-text-fill-color: black; background: none; } }
-  </style>
-
-  <!-- Preload critical images -->
-  <link rel="preload" as="image" href="/images/background-mobile.webp" media="(max-width: 767px)">
-  <link rel="preload" as="image" href="/images/background-tablet.webp" media="(min-width: 768px) and (max-width: 1023px)">
-  <link rel="preload" as="image" href="/images/background-desktop.webp" media="(min-width: 1024px) and (max-width: 1919px)">
-  <link rel="preload" as="image" href="/images/background-large.webp" media="(min-width: 1920px)">
-
-  <!-- Structured Data (JSON-LD) -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Person",
-    "name": "Michał Demczyszak",
-    "jobTitle": "DevOps Engineer and Azure Cloud Solutions Architect",
-    "url": "https://michaldemczyszak.com",
-    "sameAs": [
-      "https://www.linkedin.com/in/michaldemczyszak",
-      "https://github.com/esener303",
-      "https://www.instagram.com/3l3c7ro.ai/",
-      "https://sharepointdevelopmentblog.wordpress.com"
-    ],
-    "email": "esener303@gmail.com"
-  }
-  </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Michał Demczyszak",
+        "jobTitle": "DevOps Engineer and Azure Cloud Solutions Architect",
+        "url": "https://michaldemczyszak.com",
+        "sameAs": [
+            "https://www.linkedin.com/in/michaldemczyszak",
+            "https://github.com/esener303",
+            "https://www.instagram.com/3l3c7ro.ai/",
+            "https://sharepointdevelopmentblog.wordpress.com"
+        ],
+        "email": "esener303@gmail.com"
+    }
+    </script>
 </head>
 <body>
-  <a href="#main-content" class="skip-link">Skip to main content</a>
+    <canvas id="matrix-bg" aria-hidden="true"></canvas>
 
-  <!-- Background with Ken Burns effect -->
-  <div class="background-scene" aria-hidden="true"></div>
-
-  <!-- Background overlay for better text contrast -->
-  <div class="background-overlay" aria-hidden="true"></div>
-
-  <!-- Main content -->
-  <main id="main-content" role="main">
-    <!-- Site header with profile -->
-    <header class="site-header">
-      <h1 class="visually-hidden">Michał Demczyszak - Portfolio</h1>
-      <div class="profile-section">
-        <h2 class="name">Michał Demczyszak</h2>
-        <p class="tagline">DevOps Engineer and Azure Cloud Solutions Architect</p>
-      </div>
-    </header>
-
-    <!-- Social media navigation -->
-    <nav aria-label="Social media and contact links" class="social-nav">
-      <ul class="social-links">
-        <li>
-          <a href="mailto:esener303@gmail.com"
-             class="social-link"
-             data-platform="email"
-             title="Send email"
-             aria-label="Send email to Michał Demczyszak">
-            <img src="/logos/gmail.svg"
-                 alt=""
-                 class="social-icon"
-                 width="38"
-                 height="38"
-                 loading="lazy">
-            <span class="social-label">Email</span>
-          </a>
-        </li>
-        <li>
-          <a href="https://sharepointdevelopmentblog.wordpress.com"
-             class="social-link"
-             data-platform="blog"
-             title="SharePoint Development Blog"
-             target="_blank"
-             rel="noopener noreferrer"
-             aria-label="Visit Michał Demczyszak's SharePoint Development Blog on WordPress (opens in new tab)">
-            <img src="/logos/wp.svg"
-                 alt=""
-                 class="social-icon"
-                 width="38"
-                 height="38"
-                 loading="lazy">
-            <span class="social-label">Blog</span>
-          </a>
-        </li>
-        <li>
-          <a href="https://www.linkedin.com/in/michaldemczyszak"
-             class="social-link"
-             data-platform="linkedin"
-             title="LinkedIn profile"
-             target="_blank"
-             rel="noopener noreferrer"
-             aria-label="Connect with Michał Demczyszak on LinkedIn (opens in new tab)">
-            <img src="/logos/linkedin.svg"
-                 alt=""
-                 class="social-icon"
-                 width="38"
-                 height="38"
-                 loading="lazy">
-            <span class="social-label">LinkedIn</span>
-          </a>
-        </li>
-        <li>
-          <a href="https://github.com/esener303"
-             class="social-link"
-             data-platform="github"
-             title="GitHub repositories"
-             target="_blank"
-             rel="noopener noreferrer"
-             aria-label="View Michał Demczyszak's code repositories on GitHub (opens in new tab)">
-            <img src="/logos/github.svg"
-                 alt=""
-                 class="social-icon"
-                 width="38"
-                 height="38"
-                 loading="lazy">
-            <span class="social-label">GitHub</span>
-          </a>
-        </li>
-        <li>
-          <a href="https://www.instagram.com/3l3c7ro.ai/"
-             class="social-link"
-             data-platform="instagram"
-             title="Instagram @3l3c7ro.ai"
-             target="_blank"
-             rel="noopener noreferrer"
-             aria-label="Follow Michał Demczyszak on Instagram @3l3c7ro.ai (opens in new tab)">
-            <img src="/logos/instagram.svg"
-                 alt=""
-                 class="social-icon"
-                 width="38"
-                 height="38"
-                 loading="lazy">
-            <span class="social-label">Instagram</span>
-          </a>
-        </li>
-      </ul>
+    <nav class="nav">
+        <div class="nav-inner">
+            <a class="logo" href="#top" aria-label="Home">
+                <span class="logo-bracket">&lt;</span>
+                <span class="logo-name">MD</span>
+                <span class="logo-bracket">/&gt;</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="#about">about</a></li>
+                <li><a href="#skills">skills</a></li>
+                <li><a href="#experience">experience</a></li>
+                <li><a href="#contact">contact</a></li>
+            </ul>
+            <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
     </nav>
 
-    <!-- Footer -->
-    <footer class="site-footer">
-      <p>&copy; <span id="current-year"></span> Michał Demczyszak. All rights reserved.</p>
+    <main id="top">
+        <section class="hero">
+            <div class="hero-content">
+                <p class="hero-greet">$ whoami</p>
+                <h1 class="hero-name">
+                    <span class="gradient-text">Michał Demczyszak</span>
+                </h1>
+                <h2 class="hero-role">
+                    <span class="prompt">&gt;</span>
+                    <span id="typed-role" class="typed"></span><span class="cursor">|</span>
+                </h2>
+                <p class="hero-desc">
+                    I design and automate cloud infrastructure on Azure, build
+                    resilient CI/CD pipelines, and keep production boring &mdash;
+                    predictable, observable, and easy to rebuild from scratch.
+                </p>
+                <div class="hero-cta">
+                    <a href="#contact" class="btn btn-primary">
+                        <span>Get in touch</span>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                    </a>
+                    <a href="https://github.com/esener303" target="_blank" rel="noopener noreferrer" class="btn btn-ghost">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.1.79-.25.79-.55v-2.1c-3.2.69-3.87-1.36-3.87-1.36-.52-1.33-1.27-1.69-1.27-1.69-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.18 1.76 1.18 1.03 1.76 2.69 1.25 3.35.96.1-.74.4-1.25.72-1.54-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.28 1.18-3.09-.12-.29-.51-1.46.11-3.04 0 0 .97-.31 3.17 1.18a11.06 11.06 0 0 1 5.78 0c2.2-1.49 3.17-1.18 3.17-1.18.62 1.58.23 2.75.11 3.04.73.81 1.18 1.83 1.18 3.09 0 4.42-2.69 5.39-5.26 5.68.41.36.78 1.06.78 2.14v3.17c0 .31.21.66.8.55A11.51 11.51 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5z"/></svg>
+                        <span>View GitHub</span>
+                    </a>
+                </div>
+            </div>
+            <div class="hero-terminal" aria-hidden="true">
+                <div class="terminal-header">
+                    <span class="term-dot term-red"></span>
+                    <span class="term-dot term-yellow"></span>
+                    <span class="term-dot term-green"></span>
+                    <span class="term-title">~/devops — pwsh</span>
+                </div>
+                <div class="terminal-body">
+                    <p><span class="term-prompt">michal@azure</span>:<span class="term-path">~</span>$ cat profile.json</p>
+                    <pre class="term-code">{
+  <span class="key">"name"</span>: <span class="str">"Michał"</span>,
+  <span class="key">"role"</span>: <span class="str">"DevOps Engineer"</span>,
+  <span class="key">"cloud"</span>: <span class="str">"Azure"</span>,
+  <span class="key">"focus"</span>: [
+    <span class="str">"infrastructure as code"</span>,
+    <span class="str">"ci/cd pipelines"</span>,
+    <span class="str">"container orchestration"</span>
+  ],
+  <span class="key">"status"</span>: <span class="str">"shipping to production"</span>,
+  <span class="key">"coffee"</span>: <span class="bool">true</span>
+}</pre>
+                    <p><span class="term-prompt">michal@azure</span>:<span class="term-path">~</span>$ <span class="blink">_</span></p>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="section">
+            <div class="section-head">
+                <span class="section-num">01.</span>
+                <h2 class="section-title">About me</h2>
+                <span class="section-line"></span>
+            </div>
+            <div class="about-grid">
+                <div class="about-text">
+                    <p>
+                        Hi, I'm <strong>Michał</strong> — a DevOps Engineer and Azure
+                        Cloud Solutions Architect who genuinely enjoys turning messy,
+                        manual processes into clean, repeatable pipelines. I believe
+                        infrastructure should be boring &mdash; predictable, observable,
+                        and easy to rebuild from scratch.
+                    </p>
+                    <p>
+                        My day-to-day mixes <strong>cloud architecture</strong>,
+                        <strong>infrastructure as code</strong>, and close collaboration
+                        with developers to ship software that just works. I've spent
+                        years modernizing legacy workloads and bringing them up to
+                        <strong>cloud-native</strong> standards on Azure.
+                    </p>
+                    <p>When I'm not deploying things, you'll find me:</p>
+                    <ul class="about-list">
+                        <li>Writing on my SharePoint development blog</li>
+                        <li>Tinkering with new automation and IaC tools</li>
+                        <li>Drinking a strong coffee while reviewing pull requests</li>
+                    </ul>
+                </div>
+                <div class="about-card">
+                    <div class="stat">
+                        <span class="stat-num" data-target="100">0</span><span class="stat-unit">%</span>
+                        <span class="stat-label">commitment to automation</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-num" data-target="0">0</span>
+                        <span class="stat-label">manual deploys this sprint</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-num" data-target="42">0</span>
+                        <span class="stat-unit">+</span>
+                        <span class="stat-label">pipelines maintained &amp; counting</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="skills" class="section">
+            <div class="section-head">
+                <span class="section-num">02.</span>
+                <h2 class="section-title">Tech stack &amp; tools</h2>
+                <span class="section-line"></span>
+            </div>
+            <div class="skills-grid">
+                <article class="skill-card">
+                    <div class="skill-icon">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"/></svg>
+                    </div>
+                    <h3>Cloud Platforms</h3>
+                    <ul class="skill-tags">
+                        <li>Azure</li>
+                        <li>Entra ID</li>
+                        <li>App Services</li>
+                        <li>AKS</li>
+                    </ul>
+                </article>
+                <article class="skill-card">
+                    <div class="skill-icon">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
+                    </div>
+                    <h3>Infrastructure as Code</h3>
+                    <ul class="skill-tags">
+                        <li>Terraform</li>
+                        <li>Bicep</li>
+                        <li>ARM Templates</li>
+                        <li>Ansible</li>
+                    </ul>
+                </article>
+                <article class="skill-card">
+                    <div class="skill-icon">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                    </div>
+                    <h3>CI / CD</h3>
+                    <ul class="skill-tags">
+                        <li>Azure DevOps</li>
+                        <li>GitHub Actions</li>
+                        <li>Jenkins</li>
+                        <li>GitLab CI</li>
+                    </ul>
+                </article>
+                <article class="skill-card">
+                    <div class="skill-icon">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+                    </div>
+                    <h3>Scripting</h3>
+                    <ul class="skill-tags">
+                        <li>PowerShell</li>
+                        <li>Python</li>
+                        <li>Bash</li>
+                        <li>Azure CLI</li>
+                    </ul>
+                </article>
+                <article class="skill-card">
+                    <div class="skill-icon">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg>
+                    </div>
+                    <h3>Containers</h3>
+                    <ul class="skill-tags">
+                        <li>Docker</li>
+                        <li>Kubernetes</li>
+                        <li>Helm</li>
+                        <li>Service Mesh</li>
+                    </ul>
+                </article>
+                <article class="skill-card">
+                    <div class="skill-icon">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+                    </div>
+                    <h3>Observability</h3>
+                    <ul class="skill-tags">
+                        <li>Azure Monitor</li>
+                        <li>App Insights</li>
+                        <li>Log Analytics</li>
+                        <li>Grafana</li>
+                    </ul>
+                </article>
+            </div>
+        </section>
+
+        <section id="experience" class="section">
+            <div class="section-head">
+                <span class="section-num">03.</span>
+                <h2 class="section-title">What I do</h2>
+                <span class="section-line"></span>
+            </div>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3>Cloud architecture on Azure</h3>
+                        <p>Designing landing zones, networking, and identity that scale safely from day one — with cost and security baked in.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3>Infrastructure as code</h3>
+                        <p>Turning click-ops into versioned, peer-reviewed Terraform and Bicep so environments are reproducible and disposable.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3>CI/CD &amp; release automation</h3>
+                        <p>Building fast, reliable pipelines in Azure DevOps and GitHub Actions so teams ship more often with less drama.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3>Containerization &amp; Kubernetes</h3>
+                        <p>Packaging workloads into containers and running them reliably on AKS with sane defaults for networking, scaling, and observability.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="section section-contact">
+            <div class="section-head">
+                <span class="section-num">04.</span>
+                <h2 class="section-title">Get in touch</h2>
+                <span class="section-line"></span>
+            </div>
+            <div class="contact-card">
+                <h3>Let's build something reliable together.</h3>
+                <p>
+                    I'm open to DevOps &amp; cloud engineering opportunities, collaborations,
+                    or a good conversation about pipelines that don't flake. The fastest ways to reach me:
+                </p>
+                <div class="contact-links">
+                    <a class="contact-link" href="mailto:esener303@gmail.com">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                        <span class="contact-text">
+                            <strong>Email</strong>
+                            <em>esener303@gmail.com</em>
+                        </span>
+                    </a>
+                    <a class="contact-link" href="https://www.linkedin.com/in/michaldemczyszak" target="_blank" rel="noopener noreferrer">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.36V9h3.41v1.56h.05c.48-.9 1.63-1.85 3.36-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zm1.78 13.02H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0z"/></svg>
+                        <span class="contact-text">
+                            <strong>LinkedIn</strong>
+                            <em>linkedin.com/in/michaldemczyszak</em>
+                        </span>
+                    </a>
+                    <a class="contact-link" href="https://github.com/esener303" target="_blank" rel="noopener noreferrer">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.1.79-.25.79-.55v-2.1c-3.2.69-3.87-1.36-3.87-1.36-.52-1.33-1.27-1.69-1.27-1.69-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.18 1.76 1.18 1.03 1.76 2.69 1.25 3.35.96.1-.74.4-1.25.72-1.54-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.28 1.18-3.09-.12-.29-.51-1.46.11-3.04 0 0 .97-.31 3.17 1.18a11.06 11.06 0 0 1 5.78 0c2.2-1.49 3.17-1.18 3.17-1.18.62 1.58.23 2.75.11 3.04.73.81 1.18 1.83 1.18 3.09 0 4.42-2.69 5.39-5.26 5.68.41.36.78 1.06.78 2.14v3.17c0 .31.21.66.8.55A11.51 11.51 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5z"/></svg>
+                        <span class="contact-text">
+                            <strong>GitHub</strong>
+                            <em>github.com/esener303</em>
+                        </span>
+                    </a>
+                    <a class="contact-link" href="https://sharepointdevelopmentblog.wordpress.com" target="_blank" rel="noopener noreferrer">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+                        <span class="contact-text">
+                            <strong>Blog</strong>
+                            <em>sharepointdevelopmentblog.wordpress.com</em>
+                        </span>
+                    </a>
+                    <a class="contact-link" href="https://www.instagram.com/3l3c7ro.ai/" target="_blank" rel="noopener noreferrer">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+                        <span class="contact-text">
+                            <strong>Instagram</strong>
+                            <em>@3l3c7ro.ai</em>
+                        </span>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>
+            Crafted with <span class="footer-heart">&lt;3</span> and a lot of <span class="footer-coffee">coffee</span>
+            &middot; &copy; <span id="year">2026</span> Michał Demczyszak
+        </p>
+        <p class="footer-sub">Built &amp; deployed on GitHub Pages</p>
     </footer>
-  </main>
 
-  <!-- Minimal JavaScript for enhancements -->
-  <script>
-    // Set current year dynamically
-    document.getElementById('current-year').textContent = new Date().getFullYear();
-
-    // Detect WebP support and add class to background scene
-    function supportsWebP() {
-      const elem = document.createElement('canvas');
-      if (elem.getContext && elem.getContext('2d')) {
-        return elem.toDataURL('image/webp').indexOf('data:image/webp') === 0;
-      }
-      return false;
-    }
-
-    if (supportsWebP()) {
-      var bgScene = document.querySelector('.background-scene');
-      if (bgScene) bgScene.classList.add('webp');
-    }
-
-    // Detect reduced motion preference
-    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    if (prefersReducedMotion) {
-      document.body.classList.add('reduce-motion');
-    }
-
-    // Skip to main content functionality (accessibility enhancement)
-    document.addEventListener('DOMContentLoaded', function() {
-      var mainContent = document.getElementById('main-content');
-      if (mainContent && location.hash === '#main-content') {
-        mainContent.focus();
-      }
-    });
-  </script>
+    <script src="script.js"></script>
 </body>
 </html>
