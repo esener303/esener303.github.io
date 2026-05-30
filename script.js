@@ -188,4 +188,60 @@
             else loop();
         });
     }
+
+    /* ---------- Background music (YouTube) ---------- */
+    const audioToggle = document.getElementById('audio-toggle');
+    const playerHost = document.getElementById('yt-audio-player');
+    if (audioToggle && playerHost) {
+        const VIDEO_ID = 'JlDBqvc7Mw0';
+        let ytPlayer = null;
+        let apiReady = false;
+        let hasStarted = false;
+        let isMuted = false;
+
+        const tag = document.createElement('script');
+        tag.src = 'https://www.youtube.com/iframe_api';
+        document.head.appendChild(tag);
+
+        window.onYouTubeIframeAPIReady = function () {
+            ytPlayer = new YT.Player('yt-audio-player', {
+                videoId: VIDEO_ID,
+                playerVars: {
+                    autoplay: 0,
+                    loop: 1,
+                    playlist: VIDEO_ID,
+                    controls: 0,
+                    disablekb: 1,
+                    modestbranding: 1,
+                    playsinline: 1,
+                    rel: 0,
+                },
+                events: {
+                    onReady: () => { apiReady = true; },
+                },
+            });
+        };
+
+        const startMusic = () => {
+            if (hasStarted || !apiReady || !ytPlayer) return;
+            hasStarted = true;
+            ytPlayer.playVideo();
+            audioToggle.classList.add('playing');
+            document.removeEventListener('click', startMusic);
+            document.removeEventListener('keydown', startMusic);
+            document.removeEventListener('touchstart', startMusic);
+        };
+        document.addEventListener('click', startMusic);
+        document.addEventListener('keydown', startMusic);
+        document.addEventListener('touchstart', startMusic);
+
+        audioToggle.addEventListener('click', () => {
+            if (!hasStarted || !ytPlayer || typeof ytPlayer.mute !== 'function') return;
+            isMuted = !isMuted;
+            if (isMuted) ytPlayer.mute();
+            else ytPlayer.unmute();
+            audioToggle.setAttribute('aria-pressed', String(isMuted));
+            audioToggle.classList.toggle('muted', isMuted);
+        });
+    }
 })();
