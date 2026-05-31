@@ -1,6 +1,8 @@
 (function () {
     'use strict';
 
+    const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
     /* ---------- Typed role rotation ---------- */
     const roles = [
         'DevOps & Cloud Engineer',
@@ -10,7 +12,9 @@
         'Kubernetes Enthusiast'
     ];
     const typedEl = document.getElementById('typed-role');
-    if (typedEl) {
+    if (typedEl && prefersReduced) {
+        typedEl.textContent = roles[0];
+    } else if (typedEl) {
         let roleIdx = 0;
         let charIdx = 0;
         let deleting = false;
@@ -93,8 +97,8 @@
     const statNums = document.querySelectorAll('.stat-num');
     const animateCount = (el) => {
         const target = parseInt(el.dataset.target || '0', 10);
-        if (Number.isNaN(target) || target === 0) {
-            el.textContent = target;
+        if (Number.isNaN(target) || target === 0 || prefersReduced) {
+            el.textContent = Number.isNaN(target) ? '0' : target;
             return;
         }
         const duration = 1400;
@@ -129,7 +133,6 @@
 
     /* ---------- Matrix background ---------- */
     const canvas = document.getElementById('matrix-bg');
-    const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     if (canvas && !prefersReduced) {
         const ctx = canvas.getContext('2d');
         const chars = 'ｱｲｳｴｵｶｷｸｹｺｻｼｽｾｿﾀﾁﾂﾃﾄﾅﾆﾇﾈﾉﾊﾋﾌﾍﾎﾏﾐﾑﾒﾓﾔﾕﾖﾗﾘﾙﾚﾛﾜﾝ01{}<>/[]()=+-*$#@'.split('');
@@ -169,23 +172,36 @@
             }
         }
 
-        let raf;
+        let raf = null;
         function loop() {
             draw();
             raf = requestAnimationFrame(loop);
         }
+        function start() {
+            if (raf === null) loop();
+        }
+        function stop() {
+            if (raf !== null) {
+                cancelAnimationFrame(raf);
+                raf = null;
+            }
+        }
 
         resize();
-        loop();
+        start();
+
+        let resizeTimer;
         window.addEventListener('resize', () => {
-            cancelAnimationFrame(raf);
-            resize();
-            loop();
+            clearTimeout(resizeTimer);
+            resizeTimer = setTimeout(() => {
+                resize();
+                if (!document.hidden) start();
+            }, 150);
         });
 
         document.addEventListener('visibilitychange', () => {
-            if (document.hidden) cancelAnimationFrame(raf);
-            else loop();
+            if (document.hidden) stop();
+            else start();
         });
     }
 
