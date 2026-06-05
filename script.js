@@ -45,17 +45,38 @@
         tick();
     }
 
-    /* ---------- Sticky nav state + scroll hide ---------- */
+    /* ---------- Sticky nav state + scroll hide ----------
+       rAF-throttled: we batch the scrollY read into a single frame and only
+       touch classList when a value actually changes, so repeated scroll events
+       don't force synchronous layout (the forced-reflow PageSpeed flag). */
     const nav = document.querySelector('.nav');
-    let lastY = window.scrollY;
-    window.addEventListener('scroll', () => {
-        const y = window.scrollY;
-        if (!nav) return;
-        nav.classList.toggle('scrolled', y > 20);
-        if (y > 120 && y > lastY) nav.classList.add('hidden');
-        else nav.classList.remove('hidden');
-        lastY = y;
-    }, { passive: true });
+    if (nav) {
+        let lastY = window.scrollY;
+        let ticking = false;
+        let scrolled = false;
+        let hidden = false;
+        const update = () => {
+            ticking = false;
+            const y = window.scrollY;
+            const nextScrolled = y > 20;
+            if (nextScrolled !== scrolled) {
+                scrolled = nextScrolled;
+                nav.classList.toggle('scrolled', scrolled);
+            }
+            const nextHidden = y > 120 && y > lastY;
+            if (nextHidden !== hidden) {
+                hidden = nextHidden;
+                nav.classList.toggle('hidden', hidden);
+            }
+            lastY = y;
+        };
+        window.addEventListener('scroll', () => {
+            if (!ticking) {
+                ticking = true;
+                requestAnimationFrame(update);
+            }
+        }, { passive: true });
+    }
 
     /* ---------- Mobile menu ---------- */
     const toggle = document.querySelector('.nav-toggle');
@@ -144,6 +165,9 @@
         function resize() {
             canvas.width = window.innerWidth;
             canvas.height = window.innerHeight;
+            // Setting canvas dimensions resets all context state, so (re)apply
+            // the font here once rather than on every draw() frame.
+            ctx.font = FONT_SIZE + 'px JetBrains Mono, monospace';
             columns = Math.floor(canvas.width / FONT_SIZE);
             drops = new Array(columns).fill(0).map(() => Math.random() * -50);
             prevChar = new Array(columns).fill('');
@@ -152,7 +176,6 @@
         function draw() {
             ctx.fillStyle = 'rgba(5, 8, 5, 0.06)';
             ctx.fillRect(0, 0, canvas.width, canvas.height);
-            ctx.font = FONT_SIZE + 'px JetBrains Mono, monospace';
             for (let i = 0; i < drops.length; i++) {
                 const ch = chars[Math.floor(Math.random() * chars.length)];
                 const x = i * FONT_SIZE;
