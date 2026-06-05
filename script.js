@@ -205,22 +205,23 @@
         });
     }
 
-    /* ---------- Background music (YouTube) ---------- */
+    /* ---------- Background music (YouTube, lazy-loaded on first interaction) ----------
+       The YouTube IFrame API is heavy third-party JS. We do NOT load it on page load;
+       it is injected only after the visitor's first interaction, keeping initial load
+       (and Lighthouse/PageSpeed) free of any YouTube payload. */
     const audioToggle = document.getElementById('audio-toggle');
     const playerHost = document.getElementById('yt-audio-player');
     if (audioToggle && playerHost) {
         const VIDEO_ID = 'JlDBqvc7Mw0';
         let ytPlayer = null;
         let apiReady = false;
+        let apiRequested = false;
         let hasStarted = false;
         let isMuted = false;
 
-        const tag = document.createElement('script');
-        tag.src = 'https://www.youtube.com/iframe_api';
-        document.head.appendChild(tag);
-
         window.onYouTubeIframeAPIReady = function () {
             ytPlayer = new YT.Player('yt-audio-player', {
+                host: 'https://www.youtube-nocookie.com',
                 videoId: VIDEO_ID,
                 playerVars: {
                     autoplay: 0,
@@ -233,13 +234,29 @@
                     rel: 0,
                 },
                 events: {
-                    onReady: () => { apiReady = true; },
+                    onReady: () => {
+                        apiReady = true;
+                        startMusic();
+                    },
                 },
             });
         };
 
+        const loadApi = () => {
+            if (apiRequested) return;
+            apiRequested = true;
+            const tag = document.createElement('script');
+            tag.src = 'https://www.youtube.com/iframe_api';
+            document.head.appendChild(tag);
+        };
+
         const startMusic = () => {
-            if (hasStarted || !apiReady || !ytPlayer) return;
+            if (hasStarted) return;
+            // First gesture: kick off the (async) API load, then bail — we play on onReady.
+            if (!apiReady || !ytPlayer) {
+                loadApi();
+                return;
+            }
             hasStarted = true;
             ytPlayer.playVideo();
             audioToggle.classList.add('playing');
@@ -252,7 +269,9 @@
         document.addEventListener('touchstart', startMusic);
 
         audioToggle.addEventListener('click', () => {
-            if (!hasStarted || !ytPlayer || typeof ytPlayer.mute !== 'function') return;
+            // Before playback has begun, the toggle simply starts the music.
+            if (!hasStarted) { startMusic(); return; }
+            if (!ytPlayer || typeof ytPlayer.mute !== 'function') return;
             isMuted = !isMuted;
             if (isMuted) ytPlayer.mute();
             else ytPlayer.unmute();
