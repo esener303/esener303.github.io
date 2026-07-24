@@ -114,6 +114,22 @@
         revealTargets.forEach((el) => el.classList.add('visible'));
     }
 
+    /* ---------- Scroll-spy: highlight the nav link for the section in view ---------- */
+    const spyLinks = Array.from(document.querySelectorAll('.nav-links a[href^="#"]'));
+    if (spyLinks.length && 'IntersectionObserver' in window) {
+        const linkFor = (id) => spyLinks.find((a) => a.getAttribute('href') === '#' + id);
+        const spyIo = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (!entry.isIntersecting) return;
+                const link = linkFor(entry.target.id);
+                if (!link) return;
+                spyLinks.forEach((a) => a.classList.remove('active'));
+                link.classList.add('active');
+            });
+        }, { rootMargin: '-45% 0px -50% 0px', threshold: 0 });
+        document.querySelectorAll('main section[id]').forEach((s) => spyIo.observe(s));
+    }
+
     /* ---------- Stat counter ---------- */
     const statNums = document.querySelectorAll('.stat-num');
     const animateCount = (el) => {
