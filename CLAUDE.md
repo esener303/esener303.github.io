@@ -44,7 +44,7 @@ Since this is a static HTML site:
 
 - `index.html` - Main HTML page
 - `styles.css` - Site styles
-- `script.js` - Matrix background, typed role, scroll reveal, nav toggle
+- `script.js` - Typed role, scroll reveal, nav toggle, stack filter, terraform-apply contact terminal, background music
 - `favicon.svg` - Site favicon
 - `CNAME` - Custom domain configuration
 - `robots.txt`, `sitemap.xml` - SEO

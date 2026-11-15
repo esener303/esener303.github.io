@@ -9,7 +9,8 @@
         'Azure Cloud Solutions Architect',
         'Cloud Security Engineer',
         'GitOps & IaC Advocate',
-        'Kubernetes Enthusiast'
+        'Kubernetes Enthusiast',
+        'iOS App Builder'
     ];
     const typedEl = document.getElementById('typed-role');
     if (typedEl && prefersReduced) {
@@ -18,11 +19,11 @@
         let roleIdx = 0;
         let charIdx = 0;
         let deleting = false;
-        const TYPE_SPEED = 80;
-        const DELETE_SPEED = 40;
+        const TYPE_SPEED = 70;
+        const DELETE_SPEED = 35;
         const HOLD = 1600;
 
-        function tick() {
+        const tick = () => {
             const current = roles[roleIdx];
             if (!deleting) {
                 charIdx++;
@@ -41,66 +42,48 @@
                 return setTimeout(tick, 400);
             }
             setTimeout(tick, DELETE_SPEED);
-        }
+        };
         tick();
     }
 
-    /* ---------- Sticky nav state + scroll hide ----------
-       rAF-throttled: we batch the scrollY read into a single frame and only
-       touch classList when a value actually changes, so repeated scroll events
-       don't force synchronous layout (the forced-reflow PageSpeed flag). */
-    const nav = document.querySelector('.nav');
-    if (nav) {
-        let lastY = window.scrollY;
-        let ticking = false;
-        let scrolled = false;
-        let hidden = false;
-        const update = () => {
-            ticking = false;
-            const y = window.scrollY;
-            const nextScrolled = y > 20;
-            if (nextScrolled !== scrolled) {
-                scrolled = nextScrolled;
-                nav.classList.toggle('scrolled', scrolled);
-            }
-            const nextHidden = y > 120 && y > lastY;
-            if (nextHidden !== hidden) {
-                hidden = nextHidden;
-                nav.classList.toggle('hidden', hidden);
-            }
-            lastY = y;
-        };
-        window.addEventListener('scroll', () => {
-            if (!ticking) {
-                ticking = true;
-                requestAnimationFrame(update);
-            }
-        }, { passive: true });
+    /* ---------- Swiss local time in the hero pill ---------- */
+    const chTime = document.getElementById('ch-time');
+    if (chTime) {
+        const fmt = new Intl.DateTimeFormat('en-GB', {
+            hour: '2-digit', minute: '2-digit', timeZone: 'Europe/Zurich'
+        });
+        const updateTime = () => { chTime.textContent = fmt.format(new Date()); };
+        updateTime();
+        setInterval(updateTime, 30000);
     }
 
     /* ---------- Mobile menu ---------- */
     const toggle = document.querySelector('.nav-toggle');
     const navLinks = document.querySelector('.nav-links');
     if (toggle && navLinks) {
+        const close = () => {
+            navLinks.classList.remove('open');
+            toggle.setAttribute('aria-expanded', 'false');
+        };
         toggle.addEventListener('click', () => {
             const open = navLinks.classList.toggle('open');
             toggle.setAttribute('aria-expanded', String(open));
         });
-        navLinks.querySelectorAll('a').forEach((a) => {
-            a.addEventListener('click', () => {
-                navLinks.classList.remove('open');
-                toggle.setAttribute('aria-expanded', 'false');
-            });
-        });
+        navLinks.querySelectorAll('a').forEach((a) => a.addEventListener('click', close));
+        document.addEventListener('keydown', (e) => { if (e.key === 'Escape') close(); });
     }
 
     /* ---------- Scroll reveal ---------- */
-    const revealTargets = document.querySelectorAll(
-        '.section, .skill-card, .timeline-item, .about-card, .about-text, .contact-card'
-    );
-    revealTargets.forEach((el) => el.classList.add('reveal'));
+    const revealTargets = document.querySelectorAll('[data-reveal]');
+    // Stagger siblings within the same parent a little.
+    const groups = new Map();
+    revealTargets.forEach((el) => {
+        const n = groups.get(el.parentElement) || 0;
+        if (!el.style.getPropertyValue('--d')) el.style.setProperty('--d', (n * 80) + 'ms');
+        groups.set(el.parentElement, n + 1);
+    });
 
-    if ('IntersectionObserver' in window) {
+    if ('IntersectionObserver' in window && !prefersReduced) {
         const io = new IntersectionObserver((entries) => {
             entries.forEach((entry) => {
                 if (entry.isIntersecting) {
@@ -130,7 +113,7 @@
         document.querySelectorAll('main section[id]').forEach((s) => spyIo.observe(s));
     }
 
-    /* ---------- Stat counter ---------- */
+    /* ---------- Stat counters ---------- */
     const statNums = document.querySelectorAll('.stat-num');
     const animateCount = (el) => {
         const target = parseInt(el.dataset.target || '0', 10);
@@ -149,7 +132,6 @@
         };
         requestAnimationFrame(step);
     };
-
     if ('IntersectionObserver' in window) {
         const statIo = new IntersectionObserver((entries) => {
             entries.forEach((entry) => {
@@ -164,85 +146,109 @@
         statNums.forEach(animateCount);
     }
 
+    /* ---------- Stack filter ---------- */
+    const tabs = document.querySelectorAll('.tabs .tab');
+    const chips = document.querySelectorAll('.chips .chip');
+    tabs.forEach((tab) => {
+        tab.addEventListener('click', () => {
+            const filter = tab.dataset.filter;
+            tabs.forEach((t) => {
+                const on = t === tab;
+                t.classList.toggle('on', on);
+                t.setAttribute('aria-pressed', String(on));
+            });
+            let i = 0;
+            chips.forEach((chip) => {
+                const show = filter === 'all' || chip.dataset.group === filter;
+                chip.classList.toggle('hide', !show);
+                chip.classList.remove('pop');
+                if (show && !prefersReduced) {
+                    // Restart the entrance animation with a small stagger.
+                    void chip.offsetWidth;
+                    chip.style.animationDelay = (i++ * 30) + 'ms';
+                    chip.classList.add('pop');
+                }
+            });
+        });
+    });
+
+    /* ---------- Copy email ---------- */
+    document.querySelectorAll('[data-copy]').forEach((btn) => {
+        btn.addEventListener('click', async () => {
+            try {
+                await navigator.clipboard.writeText(btn.dataset.copy);
+                btn.textContent = 'copied';
+            } catch (_) {
+                btn.textContent = 'failed';
+            }
+            setTimeout(() => { btn.textContent = 'copy'; }, 1600);
+        });
+    });
+
+    /* ---------- terraform apply (contact) ---------- */
+    const tfForm = document.getElementById('tf-form');
+    if (tfForm) {
+        const input = document.getElementById('tf-input');
+        const ask = document.getElementById('tf-ask');
+        const err = document.getElementById('tf-err');
+        const out = document.getElementById('tf-out');
+        const done = document.getElementById('tf-done');
+        const reset = document.getElementById('tf-reset');
+        const timers = [];
+
+        const line = (text, kind) => {
+            const div = document.createElement('div');
+            div.className = 'tl new ' + kind;
+            div.textContent = text;
+            out.appendChild(div);
+        };
+
+        const apply = () => {
+            ask.hidden = true;
+            const steps = [
+                ['  Enter a value: yes', 'cmd'],
+                [' ', 'out'],
+                ['team.cloud_engineer["michal"]: Creating...', 'out'],
+                ['team.cloud_engineer["michal"]: Still creating... [2s elapsed]', 'warn'],
+                ['team.cloud_engineer["michal"]: Creation complete after 3s [id=hello]', 'ok'],
+                [' ', 'out'],
+                ['Apply complete! Resources: 1 added, 0 changed, 0 destroyed.', 'ok'],
+                [' ', 'out'],
+                ['Outputs:', 'out'],
+                ['next_step = "send me an email"', 'cmd']
+            ];
+            steps.forEach(([text, kind], i) => {
+                timers.push(setTimeout(() => line(text, kind), prefersReduced ? 0 : i * 260));
+            });
+            timers.push(setTimeout(() => { done.hidden = false; }, prefersReduced ? 0 : steps.length * 260));
+        };
+
+        tfForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            // An empty field counts as accepting the "yes" placeholder.
+            const val = input.value.trim().toLowerCase();
+            if (val === 'yes' || val === '') {
+                err.hidden = true;
+                apply();
+            } else {
+                err.hidden = false;
+                input.value = '';
+            }
+        });
+
+        reset.addEventListener('click', () => {
+            timers.splice(0).forEach(clearTimeout);
+            out.textContent = '';
+            done.hidden = true;
+            err.hidden = true;
+            input.value = '';
+            ask.hidden = false;
+        });
+    }
+
     /* ---------- Year ---------- */
     const yearEl = document.getElementById('year');
     if (yearEl) yearEl.textContent = new Date().getFullYear();
-
-    /* ---------- Matrix background ---------- */
-    const canvas = document.getElementById('matrix-bg');
-    if (canvas && !prefersReduced) {
-        const ctx = canvas.getContext('2d');
-        const chars = 'ｱｲｳｴｵｶｷｸｹｺｻｼｽｾｿﾀﾁﾂﾃﾄﾅﾆﾇﾈﾉﾊﾋﾌﾍﾎﾏﾐﾑﾒﾓﾔﾕﾖﾗﾘﾙﾚﾛﾜﾝ01{}<>/[]()=+-*$#@'.split('');
-        let columns = 0;
-        let drops = [];
-        let prevChar = [];
-        const FONT_SIZE = 14;
-
-        function resize() {
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
-            // Setting canvas dimensions resets all context state, so (re)apply
-            // the font here once rather than on every draw() frame.
-            ctx.font = FONT_SIZE + 'px JetBrains Mono, monospace';
-            columns = Math.floor(canvas.width / FONT_SIZE);
-            drops = new Array(columns).fill(0).map(() => Math.random() * -50);
-            prevChar = new Array(columns).fill('');
-        }
-
-        function draw() {
-            ctx.fillStyle = 'rgba(5, 8, 5, 0.06)';
-            ctx.fillRect(0, 0, canvas.width, canvas.height);
-            for (let i = 0; i < drops.length; i++) {
-                const ch = chars[Math.floor(Math.random() * chars.length)];
-                const x = i * FONT_SIZE;
-                const y = drops[i] * FONT_SIZE;
-                if (prevChar[i]) {
-                    ctx.fillStyle = '#16a34a';
-                    ctx.fillText(prevChar[i], x, y - FONT_SIZE);
-                }
-                ctx.fillStyle = '#dcfce7';
-                ctx.fillText(ch, x, y);
-                prevChar[i] = ch;
-                if (y > canvas.height && Math.random() > 0.975) {
-                    drops[i] = 0;
-                    prevChar[i] = '';
-                }
-                drops[i] += 1;
-            }
-        }
-
-        let raf = null;
-        function loop() {
-            draw();
-            raf = requestAnimationFrame(loop);
-        }
-        function start() {
-            if (raf === null) loop();
-        }
-        function stop() {
-            if (raf !== null) {
-                cancelAnimationFrame(raf);
-                raf = null;
-            }
-        }
-
-        resize();
-        start();
-
-        let resizeTimer;
-        window.addEventListener('resize', () => {
-            clearTimeout(resizeTimer);
-            resizeTimer = setTimeout(() => {
-                resize();
-                if (!document.hidden) start();
-            }, 150);
-        });
-
-        document.addEventListener('visibilitychange', () => {
-            if (document.hidden) stop();
-            else start();
-        });
-    }
 
     /* ---------- Background music (YouTube, lazy-loaded on first interaction) ----------
        The YouTube IFrame API is heavy third-party JS. We do NOT load it on page load;

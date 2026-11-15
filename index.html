@@ -6,7 +6,7 @@
     <meta name="description" content="Michał Demczyszak — DevOps Engineer and Azure Cloud Solutions Architect. Cloud architecture, automation, and reliable software delivery." />
     <meta name="author" content="Michał Demczyszak" />
     <meta name="keywords" content="Michał Demczyszak, DevOps Engineer, Azure Cloud Solutions Architect, Infrastructure as Code, Portfolio" />
-    <meta name="theme-color" content="#050805" />
+    <meta name="theme-color" content="#0a0c0f" />
 
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://michaldemczyszak.com/" />
@@ -25,8 +25,9 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Inter:wght@400;500;600;700;800&display=swap" onload="this.onload=null;this.rel='stylesheet'" />
-    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Inter:wght@400;500;600;700;800&display=swap" /></noscript>
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" onload="this.onload=null;this.rel='stylesheet'" />
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" /></noscript>
+    <script>document.documentElement.classList.add('js');</script>
     <link rel="stylesheet" href="styles.css" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 
@@ -43,7 +44,7 @@
             "https://www.instagram.com/3l3c7ro.ai/",
             "https://sharepointdevelopmentblog.wordpress.com",
             "https://apps.apple.com/ch/app/alps-summits/id6775881437",
-            "https://apps.apple.com/ch/app/tramli/id6799713744",
+            "https://apps.apple.com/ch/app/abfahrtli/id6799713744",
             "https://helvetiapixel.ch"
         ],
         "email": "esener303@gmail.com"
@@ -53,104 +54,108 @@
 </head>
 <body>
     <a href="#top" class="skip-link">Skip to content</a>
-    <canvas id="matrix-bg" aria-hidden="true"></canvas>
 
-    <nav class="nav">
-        <div class="nav-inner">
-            <a class="logo" href="#top" aria-label="Home">
-                <span class="logo-bracket">&lt;</span>
-                <span class="logo-name">MD</span>
-                <span class="logo-bracket">/&gt;</span>
-            </a>
+    <header class="nav">
+        <nav class="nav-in" aria-label="Primary">
+            <a href="#top" class="mono nav-brand" aria-label="Home">michal<span class="accent">.sh</span><span class="cursor" aria-hidden="true"></span></a>
             <ul class="nav-links">
-                <li><a href="#about">about</a></li>
-                <li><a href="#projects">projects</a></li>
-                <li><a href="#skills">skills</a></li>
-                <li><a href="#experience">experience</a></li>
-                <li><a href="#contact">contact</a></li>
+                <li><a class="nav-link mono" href="#about">about</a></li>
+                <li><a class="nav-link mono" href="#projects">projects</a></li>
+                <li><a class="nav-link mono" href="#experience">experience</a></li>
+                <li><a class="nav-link mono" href="#stack">stack</a></li>
+                <li><a class="nav-link mono" href="#contact">contact</a></li>
             </ul>
-            <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
-                <span></span><span></span><span></span>
-            </button>
-        </div>
-    </nav>
+            <div class="nav-tools">
+                <span class="nav-status mono"><span class="live-dot"></span><span class="nav-status-txt">all systems operational</span></span>
+                <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
+        </nav>
+    </header>
 
     <main id="top">
-        <section class="hero">
-            <div class="hero-content">
-                <p class="hero-greet">$ whoami</p>
-                <h1 class="hero-name">
-                    <span class="gradient-text">Michał Demczyszak</span>
+        <!-- ============ HERO ============ -->
+        <section class="hero wrap">
+            <div class="hero-main">
+                <div class="pill mono reveal-now">
+                    <span class="live-dot"></span>
+                    DevOps Engineer / Azure Architect
+                    <span class="hero-clock" title="Local time in Switzerland">CH <span id="ch-time">--:--</span></span>
+                </div>
+                <h1 class="hero-name reveal-now d1">
+                    <span class="glitch" data-text="Michał">Michał</span><span class="accent">.</span>
                 </h1>
-                <h2 class="hero-role">
-                    <span class="prompt">&gt;</span>
-                    <span id="typed-role" class="typed"></span><span class="cursor">|</span>
-                </h2>
-                <p class="hero-desc">
+                <p class="hero-role mono reveal-now d2">
+                    <span class="accent">&gt;</span> <span id="typed-role"></span><span class="cursor" aria-hidden="true"></span>
+                </p>
+                <p class="hero-desc reveal-now d2">
                     I design and automate cloud infrastructure on Azure, build
                     resilient CI/CD pipelines, and keep production boring &mdash;
                     predictable, observable, and easy to rebuild from scratch.
                 </p>
-                <div class="hero-cta">
+                <div class="hero-cta reveal-now d3">
                     <a href="#contact" class="btn btn-primary">
-                        <span>Get in touch</span>
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                        Get in touch
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
                     </a>
                     <a href="https://github.com/esener303" target="_blank" rel="noopener noreferrer" class="btn btn-ghost">
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.1.79-.25.79-.55v-2.1c-3.2.69-3.87-1.36-3.87-1.36-.52-1.33-1.27-1.69-1.27-1.69-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.18 1.76 1.18 1.03 1.76 2.69 1.25 3.35.96.1-.74.4-1.25.72-1.54-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.28 1.18-3.09-.12-.29-.51-1.46.11-3.04 0 0 .97-.31 3.17 1.18a11.06 11.06 0 0 1 5.78 0c2.2-1.49 3.17-1.18 3.17-1.18.62 1.58.23 2.75.11 3.04.73.81 1.18 1.83 1.18 3.09 0 4.42-2.69 5.39-5.26 5.68.41.36.78 1.06.78 2.14v3.17c0 .31.21.66.8.55A11.51 11.51 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5z"/></svg>
-                        <span>View GitHub</span>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.1.79-.25.79-.55v-2.1c-3.2.69-3.87-1.36-3.87-1.36-.52-1.33-1.27-1.69-1.27-1.69-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.18 1.76 1.18 1.03 1.76 2.69 1.25 3.35.96.1-.74.4-1.25.72-1.54-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.28 1.18-3.09-.12-.29-.51-1.46.11-3.04 0 0 .97-.31 3.17 1.18a11.06 11.06 0 0 1 5.78 0c2.2-1.49 3.17-1.18 3.17-1.18.62 1.58.23 2.75.11 3.04.73.81 1.18 1.83 1.18 3.09 0 4.42-2.69 5.39-5.26 5.68.41.36.78 1.06.78 2.14v3.17c0 .31.21.66.8.55A11.51 11.51 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5z"/></svg>
+                        github.com/esener303
                     </a>
                 </div>
             </div>
-            <div class="hero-terminal" aria-hidden="true">
-                <div class="terminal-header">
-                    <span class="term-dot term-red"></span>
-                    <span class="term-dot term-yellow"></span>
-                    <span class="term-dot term-green"></span>
-                    <span class="term-title">~/devops — bash</span>
+
+            <div class="term reveal-now d3" aria-hidden="true">
+                <div class="term-bar">
+                    <span class="term-light" style="background:#FF7A7A"></span>
+                    <span class="term-light" style="background:#FFB86B"></span>
+                    <span class="term-light" style="background:#7CF29A"></span>
+                    <span class="mono term-name">~/devops — zsh</span>
                 </div>
-                <div class="terminal-body">
-                    <p><span class="term-prompt">michal@azure</span>:<span class="term-path">~</span>$ cat profile.json</p>
-                    <pre class="term-code">{
+                <div class="term-body mono">
+                    <div class="tl cmd"><span class="accent">michal@azure</span>:<span class="blue">~</span>$ cat profile.json</div>
+<pre class="tl out">{
   <span class="key">"name"</span>: <span class="str">"Michał"</span>,
   <span class="key">"role"</span>: <span class="str">"DevOps &amp; Cloud Engineer"</span>,
   <span class="key">"experience"</span>: <span class="str">"Enterprise &amp; Finance Infrastructure"</span>,
   <span class="key">"passion"</span>: [
-    <span class="str">"DevSecOps"</span>,
-    <span class="str">"Cloud Architecture"</span>,
-    <span class="str">"GitOps"</span>,
-    <span class="str">"Cloud Security Engineering"</span>
+    <span class="str">"DevSecOps"</span>, <span class="str">"Cloud Architecture"</span>,
+    <span class="str">"GitOps"</span>, <span class="str">"Cloud Security Engineering"</span>
   ],
   <span class="key">"focus"</span>: [
-    <span class="str">"Automation &amp; CI/CD"</span>,
-    <span class="str">"Kubernetes &amp; AKS"</span>,
-    <span class="str">"Infrastructure as Code"</span>,
-    <span class="str">"Observability"</span>,
-    <span class="str">"Modern Cloud Practices"</span>
+    <span class="str">"Automation &amp; CI/CD"</span>, <span class="str">"Kubernetes &amp; AKS"</span>,
+    <span class="str">"Infrastructure as Code"</span>, <span class="str">"Observability"</span>
   ],
-  <span class="key">"approach"</span>: <span class="str">"Bridging technical delivery with business outcomes"</span>,
+  <span class="key">"approach"</span>: <span class="str">"Bridging delivery with business outcomes"</span>,
   <span class="key">"coffee"</span>: <span class="bool">true</span>
 }</pre>
-                    <p><span class="term-prompt">michal@azure</span>:<span class="term-path">~</span>$ <span class="blink">_</span></p>
+                    <div class="tl cmd"><span class="accent">michal@azure</span>:<span class="blue">~</span>$ <span class="cursor"></span></div>
                 </div>
             </div>
         </section>
 
-        <section id="about" class="section">
-            <div class="section-head">
-                <span class="section-num">01.</span>
-                <h2 class="section-title">About me</h2>
-                <span class="section-line"></span>
+        <!-- ============ MARQUEE ============ -->
+        <div class="marquee mono" aria-hidden="true">
+            <div class="track">
+                <span>Azure</span><span class="sep">/</span><span>Terraform</span><span class="sep">/</span><span>Kubernetes</span><span class="sep">/</span><span>Bicep</span><span class="sep">/</span><span>GitHub Actions</span><span class="sep">/</span><span>Azure DevOps</span><span class="sep">/</span><span>ArgoCD</span><span class="sep">/</span><span>Docker</span><span class="sep">/</span><span>Helm</span><span class="sep">/</span><span>PowerShell</span><span class="sep">/</span><span>Python</span><span class="sep">/</span><span>Grafana</span><span class="sep">/</span><span>Swift</span><span class="sep">/</span>
+                <span>Azure</span><span class="sep">/</span><span>Terraform</span><span class="sep">/</span><span>Kubernetes</span><span class="sep">/</span><span>Bicep</span><span class="sep">/</span><span>GitHub Actions</span><span class="sep">/</span><span>Azure DevOps</span><span class="sep">/</span><span>ArgoCD</span><span class="sep">/</span><span>Docker</span><span class="sep">/</span><span>Helm</span><span class="sep">/</span><span>PowerShell</span><span class="sep">/</span><span>Python</span><span class="sep">/</span><span>Grafana</span><span class="sep">/</span><span>Swift</span><span class="sep">/</span>
+            </div>
+        </div>
+
+        <!-- ============ ABOUT ============ -->
+        <section id="about" class="section wrap">
+            <div class="sec-head">
+                <span class="mono sec-kicker">01 / ABOUT</span>
+                <h2 class="sec-title">Infrastructure should be boring.</h2>
+                <p class="sec-lead">
+                    Hi, I'm <strong>Michał</strong> &mdash; a DevOps Engineer and Azure Cloud Solutions
+                    Architect who genuinely enjoys turning messy, manual processes into clean,
+                    repeatable pipelines.
+                </p>
             </div>
             <div class="about-grid">
-                <div class="about-text">
-                    <p>
-                        Hi, I'm <strong>Michał</strong> — a DevOps Engineer and Azure
-                        Cloud Solutions Architect who genuinely enjoys turning messy,
-                        manual processes into clean, repeatable pipelines. I believe
-                        infrastructure should be boring &mdash; predictable, observable,
-                        and easy to rebuild from scratch.
-                    </p>
+                <div class="about-text" data-reveal>
                     <p>
                         My day-to-day mixes <strong>cloud architecture</strong>,
                         <strong>infrastructure as code</strong>, and close collaboration
@@ -158,326 +163,322 @@
                         years modernizing legacy workloads and bringing them up to
                         <strong>cloud-native</strong> standards on Azure.
                     </p>
-                    <p>When I'm not deploying things, you'll find me:</p>
+                    <p class="mono dim">// when I'm not deploying things:</p>
                     <ul class="about-list">
                         <li>Writing on my SharePoint development blog</li>
+                        <li>Shipping my own iOS apps to the App Store</li>
                         <li>Tinkering with new automation and IaC tools</li>
                         <li>Drinking a strong coffee while reviewing pull requests</li>
                     </ul>
                 </div>
-                <div class="about-card">
-                    <div class="stat">
-                        <span class="stat-num" data-target="100">0</span><span class="stat-unit">%</span>
-                        <span class="stat-label">commitment to automation</span>
+                <div class="impact-grid">
+                    <div class="impact" data-reveal style="--c:var(--accent)">
+                        <span class="impact-num"><span class="stat-num" data-target="100">0</span>%</span>
+                        <span class="impact-lbl">commitment to automation</span>
                     </div>
-                    <div class="stat">
-                        <span class="stat-num" data-target="0">0</span>
-                        <span class="stat-label">manual deploys this sprint</span>
+                    <div class="impact" data-reveal style="--c:#5CC8FF">
+                        <span class="impact-num"><span class="stat-num" data-target="0">0</span></span>
+                        <span class="impact-lbl">manual deploys this sprint</span>
                     </div>
-                    <div class="stat">
-                        <span class="stat-num" data-target="42">0</span>
-                        <span class="stat-unit">+</span>
-                        <span class="stat-label">pipelines maintained &amp; counting</span>
+                    <div class="impact" data-reveal style="--c:#C4A1FF">
+                        <span class="impact-num"><span class="stat-num" data-target="42">0</span>+</span>
+                        <span class="impact-lbl">pipelines maintained &amp; counting</span>
+                    </div>
+                    <div class="impact" data-reveal style="--c:#FFB86B">
+                        <span class="impact-num"><span class="stat-num" data-target="2">0</span></span>
+                        <span class="impact-lbl">iOS apps live on the App Store</span>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="projects" class="section">
-            <div class="section-head">
-                <span class="section-num">02.</span>
-                <h2 class="section-title">Projects</h2>
-                <span class="section-line"></span>
+        <!-- ============ PROJECTS ============ -->
+        <section id="projects" class="section wrap">
+            <div class="sec-head">
+                <span class="mono sec-kicker">02 / PROJECTS</span>
+                <h2 class="sec-title">Things I've shipped.</h2>
+                <p class="sec-lead">Side projects and ventures &mdash; designed, built, and released end to end.</p>
             </div>
             <div class="projects-grid">
-                <article class="project-card project-featured">
-                    <div class="project-badge">iOS App</div>
-                    <div class="project-icon" aria-hidden="true">
-                        <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m8 3 4 8 5-5 5 15H2L8 3z"/></svg>
+                <article class="card project" data-reveal style="--c:#5CC8FF">
+                    <div class="project-top">
+                        <div class="project-icon" aria-hidden="true">
+                            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m8 3 4 8 5-5 5 15H2L8 3z"/></svg>
+                        </div>
+                        <span class="badge mono">iOS App</span>
                     </div>
-                    <div class="project-body">
-                        <h3>Alps Summits</h3>
-                        <p class="project-role">Owner &amp; Developer</p>
-                        <p>
-                            An iOS app for exploring the peaks of the Alps &mdash; designed,
-                            built, and shipped to the App Store end to end. From concept and
-                            development to release, it's mine from summit to base camp.
-                        </p>
-                        <ul class="skill-tags project-tags">
-                            <li>Swift</li>
-                            <li>iOS</li>
-                            <li>App Store</li>
-                        </ul>
-                        <a class="btn btn-primary project-cta" href="https://apps.apple.com/ch/app/alps-summits/id6775881437" target="_blank" rel="noopener noreferrer">
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.05 12.98c-.03-2.6 2.12-3.85 2.22-3.91-1.21-1.77-3.09-2.01-3.76-2.04-1.6-.16-3.12.94-3.93.94-.81 0-2.06-.92-3.39-.9-1.74.03-3.35 1.01-4.25 2.57-1.81 3.14-.46 7.78 1.3 10.32.86 1.24 1.89 2.64 3.23 2.59 1.3-.05 1.79-.84 3.36-.84 1.57 0 2.01.84 3.39.81 1.4-.02 2.28-1.27 3.13-2.52.99-1.44 1.4-2.84 1.42-2.91-.03-.01-2.72-1.04-2.75-4.13M14.48 5.34c.71-.86 1.19-2.06 1.06-3.25-1.02.04-2.26.68-3 1.54-.66.76-1.24 1.98-1.09 3.15 1.14.09 2.31-.58 3.03-1.44"/></svg>
-                            <span>View on App Store</span>
-                        </a>
-                    </div>
+                    <h3>Alps Summits</h3>
+                    <p class="project-role mono">owner &amp; developer</p>
+                    <p>
+                        An iOS app for exploring the peaks of the Alps &mdash; designed,
+                        built, and shipped to the App Store end to end. From concept and
+                        development to release, it's mine from summit to base camp.
+                    </p>
+                    <ul class="tags mono">
+                        <li>Swift</li><li>iOS</li><li>App Store</li>
+                    </ul>
+                    <a class="project-link mono" href="https://apps.apple.com/ch/app/alps-summits/id6775881437" target="_blank" rel="noopener noreferrer">
+                        View on App Store <span class="arrow" aria-hidden="true">&#8599;</span>
+                    </a>
                 </article>
-                <article class="project-card project-featured">
-                    <div class="project-badge">iOS App</div>
-                    <div class="project-icon" aria-hidden="true">
-                        <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="16" height="16" x="4" y="3" rx="2"/><path d="M4 11h16"/><path d="M12 3v8"/><path d="m8 19-2 3"/><path d="m18 22-2-3"/><path d="M8 15h.01"/><path d="M16 15h.01"/></svg>
+                <article class="card project" data-reveal style="--c:var(--accent)">
+                    <div class="project-top">
+                        <div class="project-icon" aria-hidden="true">
+                            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="16" height="16" x="4" y="3" rx="2"/><path d="M4 11h16"/><path d="M12 3v8"/><path d="m8 19-2 3"/><path d="m18 22-2-3"/><path d="M8 15h.01"/><path d="M16 15h.01"/></svg>
+                        </div>
+                        <span class="badge mono">iOS App</span>
                     </div>
-                    <div class="project-body">
-                        <h3>Tramli</h3>
-                        <p class="project-role">Owner &amp; Developer</p>
-                        <p>
-                            An iOS app for live departures from any Swiss station &mdash; trams,
-                            buses, trains, boats, and cable cars, with real-time delays, platforms,
-                            and Home &amp; Lock Screen widgets. No account, no ads, no tracking.
-                        </p>
-                        <ul class="skill-tags project-tags">
-                            <li>Swift</li>
-                            <li>iOS</li>
-                            <li>WidgetKit</li>
-                            <li>App Store</li>
-                        </ul>
-                        <a class="btn btn-primary project-cta" href="https://apps.apple.com/ch/app/tramli/id6799713744" target="_blank" rel="noopener noreferrer">
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.05 12.98c-.03-2.6 2.12-3.85 2.22-3.91-1.21-1.77-3.09-2.01-3.76-2.04-1.6-.16-3.12.94-3.93.94-.81 0-2.06-.92-3.39-.9-1.74.03-3.35 1.01-4.25 2.57-1.81 3.14-.46 7.78 1.3 10.32.86 1.24 1.89 2.64 3.23 2.59 1.3-.05 1.79-.84 3.36-.84 1.57 0 2.01.84 3.39.81 1.4-.02 2.28-1.27 3.13-2.52.99-1.44 1.4-2.84 1.42-2.91-.03-.01-2.72-1.04-2.75-4.13M14.48 5.34c.71-.86 1.19-2.06 1.06-3.25-1.02.04-2.26.68-3 1.54-.66.76-1.24 1.98-1.09 3.15 1.14.09 2.31-.58 3.03-1.44"/></svg>
-                            <span>View on App Store</span>
-                        </a>
-                    </div>
+                    <h3>Abfahrtli</h3>
+                    <p class="project-role mono">owner &amp; developer</p>
+                    <p>
+                        Live departures from any Swiss station &mdash; trams, buses, trains,
+                        boats, and cable cars, with real-time delays, platforms, and Home &amp;
+                        Lock Screen widgets. No account, no ads, no tracking.
+                    </p>
+                    <ul class="tags mono">
+                        <li>Swift</li><li>iOS</li><li>WidgetKit</li><li>App Store</li>
+                    </ul>
+                    <a class="project-link mono" href="https://apps.apple.com/ch/app/abfahrtli/id6799713744" target="_blank" rel="noopener noreferrer">
+                        View on App Store <span class="arrow" aria-hidden="true">&#8599;</span>
+                    </a>
                 </article>
-                <article class="project-card project-featured">
-                    <div class="project-badge">Digital Agency</div>
-                    <div class="project-icon" aria-hidden="true">
-                        <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M12 7v10"/><path d="M7 12h10"/></svg>
+                <article class="card project" data-reveal style="--c:#FF7A7A">
+                    <div class="project-top">
+                        <div class="project-icon" aria-hidden="true">
+                            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M12 7v10"/><path d="M7 12h10"/></svg>
+                        </div>
+                        <span class="badge mono">Digital Agency</span>
                     </div>
-                    <div class="project-body">
-                        <h3>Helvetia Pixel</h3>
-                        <p class="project-role">Co-Founder &amp; Cloud / DevOps Engineer</p>
-                        <p>
-                            A digital agency from Lenzburg, Switzerland, helping Swiss SMEs and
-                            family businesses modernize safely &mdash; multilingual, accessible websites
-                            hosted in Switzerland or the EU, zero-surprise platform migrations with
-                            staging rehearsals, 301 redirects, and tested rollback plans, plus
-                            automation and practical AI where it brings measurable value.
-                            Co-founded with an ISTQB-certified QA engineer, so every release is tested.
-                        </p>
-                        <ul class="skill-tags project-tags">
-                            <li>Next.js</li>
-                            <li>Azure</li>
-                            <li>Terraform</li>
-                            <li>GitHub Actions</li>
-                            <li>n8n</li>
-                            <li>Playwright</li>
-                        </ul>
-                        <a class="btn btn-primary project-cta" href="https://helvetiapixel.ch" target="_blank" rel="noopener noreferrer">
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
-                            <span>Visit helvetiapixel.ch</span>
-                        </a>
-                    </div>
+                    <h3>Helvetia Pixel</h3>
+                    <p class="project-role mono">co-founder &amp; cloud / devops engineer</p>
+                    <p>
+                        A digital agency from Lenzburg, Switzerland, helping Swiss SMEs and
+                        family businesses modernize safely &mdash; multilingual, accessible websites
+                        hosted in Switzerland or the EU, zero-surprise platform migrations with
+                        staging rehearsals, 301 redirects, and tested rollback plans, plus
+                        automation and practical AI where it brings measurable value.
+                        Co-founded with an ISTQB-certified QA engineer, so every release is tested.
+                    </p>
+                    <ul class="tags mono">
+                        <li>Next.js</li><li>Azure</li><li>Terraform</li><li>GitHub Actions</li><li>n8n</li><li>Playwright</li>
+                    </ul>
+                    <a class="project-link mono" href="https://helvetiapixel.ch" target="_blank" rel="noopener noreferrer">
+                        helvetiapixel.ch <span class="arrow" aria-hidden="true">&#8599;</span>
+                    </a>
                 </article>
             </div>
         </section>
 
-        <section id="skills" class="section">
-            <div class="section-head">
-                <span class="section-num">03.</span>
-                <h2 class="section-title">Tech stack &amp; tools</h2>
-                <span class="section-line"></span>
+        <!-- ============ EXPERIENCE (git log) ============ -->
+        <section id="experience" class="section wrap">
+            <div class="sec-head">
+                <span class="mono sec-kicker">03 / EXPERIENCE</span>
+                <h2 class="sec-title mono-title">git log --what-i-do</h2>
+                <p class="sec-lead">What a typical week looks like. Click a commit to see the diff.</p>
             </div>
-            <div class="skills-grid">
-                <article class="skill-card">
-                    <div class="skill-icon">
-                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"/></svg>
+            <div class="commits">
+                <details class="commit" data-reveal open>
+                    <summary class="commit-head">
+                        <span class="commit-dot" aria-hidden="true"></span>
+                        <span class="mono hash">a3f9c21</span>
+                        <span class="mono ref">HEAD -&gt; main</span>
+                        <span class="commit-title">Cloud architecture on Azure</span>
+                    </summary>
+                    <div class="diff mono">
+                        <div class="diff-line hdr">@@ landing-zones/ @@</div>
+                        <div class="diff-line del">- click-ops subscriptions, flat networks, shared admin accounts</div>
+                        <div class="diff-line add">+ landing zones, hub-spoke networking &amp; Entra ID identity that scale safely from day one</div>
+                        <div class="diff-line add">+ cost and security baked in, not bolted on</div>
                     </div>
-                    <h3>Cloud Platforms</h3>
-                    <ul class="skill-tags">
-                        <li>Azure</li>
-                        <li>AWS</li>
-                        <li>GCP</li>
-                        <li>Entra ID</li>
-                        <li>App Services</li>
-                        <li>AKS</li>
-                    </ul>
-                </article>
-                <article class="skill-card">
-                    <div class="skill-icon">
-                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
+                </details>
+                <details class="commit" data-reveal>
+                    <summary class="commit-head">
+                        <span class="commit-dot" aria-hidden="true"></span>
+                        <span class="mono hash">7be04d8</span>
+                        <span class="commit-title">Infrastructure as code</span>
+                    </summary>
+                    <div class="diff mono">
+                        <div class="diff-line hdr">@@ infra/*.tf infra/*.bicep @@</div>
+                        <div class="diff-line del">- "works on the portal", undocumented manual changes</div>
+                        <div class="diff-line add">+ versioned, peer-reviewed Terraform &amp; Bicep</div>
+                        <div class="diff-line add">+ environments that are reproducible and disposable</div>
                     </div>
-                    <h3>Infrastructure as Code</h3>
-                    <ul class="skill-tags">
-                        <li>Terraform</li>
-                        <li>Bicep</li>
-                        <li>ARM Templates</li>
-                        <li>Ansible</li>
-                    </ul>
-                </article>
-                <article class="skill-card">
-                    <div class="skill-icon">
-                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                </details>
+                <details class="commit" data-reveal>
+                    <summary class="commit-head">
+                        <span class="commit-dot" aria-hidden="true"></span>
+                        <span class="mono hash">e51c9a0</span>
+                        <span class="commit-title">CI/CD &amp; release automation</span>
+                    </summary>
+                    <div class="diff mono">
+                        <div class="diff-line hdr">@@ .github/workflows/ azure-pipelines.yml @@</div>
+                        <div class="diff-line del">- Friday-evening deploys and a 12-step wiki checklist</div>
+                        <div class="diff-line add">+ fast, reliable pipelines in Azure DevOps &amp; GitHub Actions</div>
+                        <div class="diff-line add">+ teams ship more often with less drama</div>
                     </div>
-                    <h3>CI / CD</h3>
-                    <ul class="skill-tags">
-                        <li>Azure DevOps</li>
-                        <li>GitHub Actions</li>
-                        <li>Jenkins</li>
-                        <li>GitLab CI</li>
-                        <li>ArgoCD</li>
-                        <li>FluxCD</li>
-                    </ul>
-                </article>
-                <article class="skill-card">
-                    <div class="skill-icon">
-                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+                </details>
+                <details class="commit" data-reveal>
+                    <summary class="commit-head">
+                        <span class="commit-dot" aria-hidden="true"></span>
+                        <span class="mono hash">0c2d6f4</span>
+                        <span class="commit-title">Containerization &amp; Kubernetes</span>
+                    </summary>
+                    <div class="diff mono">
+                        <div class="diff-line hdr">@@ charts/ manifests/ @@</div>
+                        <div class="diff-line del">- snowflake VMs nobody dares to reboot</div>
+                        <div class="diff-line add">+ containerized workloads running reliably on AKS</div>
+                        <div class="diff-line add">+ sane defaults for networking, scaling &amp; observability</div>
                     </div>
-                    <h3>Scripting</h3>
-                    <ul class="skill-tags">
-                        <li>PowerShell</li>
-                        <li>Python</li>
-                        <li>Bash</li>
-                        <li>Azure CLI</li>
-                    </ul>
-                </article>
-                <article class="skill-card">
-                    <div class="skill-icon">
-                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg>
+                </details>
+                <details class="commit" data-reveal>
+                    <summary class="commit-head">
+                        <span class="commit-dot" aria-hidden="true"></span>
+                        <span class="mono hash">9d18b73</span>
+                        <span class="commit-title">Platform engineering &amp; DevEx</span>
+                    </summary>
+                    <div class="diff mono">
+                        <div class="diff-line hdr">@@ platform/ @@</div>
+                        <div class="diff-line del">- "open a ticket and wait two weeks"</div>
+                        <div class="diff-line add">+ golden paths &amp; self-service tooling for developers</div>
+                        <div class="diff-line add">+ GitOps with ArgoCD / FluxCD as the source of truth</div>
                     </div>
-                    <h3>Containers</h3>
-                    <ul class="skill-tags">
-                        <li>Docker</li>
-                        <li>Kubernetes</li>
-                        <li>Helm</li>
-                        <li>Service Mesh</li>
-                    </ul>
-                </article>
-                <article class="skill-card">
-                    <div class="skill-icon">
-                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
-                    </div>
-                    <h3>Observability</h3>
-                    <ul class="skill-tags">
-                        <li>Azure Monitor</li>
-                        <li>App Insights</li>
-                        <li>Log Analytics</li>
-                        <li>Grafana</li>
-                    </ul>
-                </article>
-                <article class="skill-card">
-                    <div class="skill-icon">
-                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
-                    </div>
-                    <h3>Platform Engineering</h3>
-                    <ul class="skill-tags">
-                        <li>Internal Developer Platforms</li>
-                        <li>Backstage</li>
-                        <li>Golden Paths</li>
-                        <li>Self-service Tooling</li>
-                        <li>DevEx</li>
-                    </ul>
-                </article>
+                </details>
             </div>
         </section>
 
-        <section id="experience" class="section">
-            <div class="section-head">
-                <span class="section-num">04.</span>
-                <h2 class="section-title">What I do</h2>
-                <span class="section-line"></span>
+        <!-- ============ STACK ============ -->
+        <section id="stack" class="section wrap">
+            <div class="sec-head">
+                <span class="mono sec-kicker">04 / STACK</span>
+                <h2 class="sec-title">Tools I reach for.</h2>
+                <p class="sec-lead">Grouped by what they do. Pick a group to filter.</p>
             </div>
-            <div class="timeline">
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <h3>Cloud architecture on Azure</h3>
-                        <p>Designing landing zones, networking, and identity that scale safely from day one — with cost and security baked in.</p>
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <h3>Infrastructure as code</h3>
-                        <p>Turning click-ops into versioned, peer-reviewed Terraform and Bicep so environments are reproducible and disposable.</p>
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <h3>CI/CD &amp; release automation</h3>
-                        <p>Building fast, reliable pipelines in Azure DevOps and GitHub Actions so teams ship more often with less drama.</p>
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <h3>Containerization &amp; Kubernetes</h3>
-                        <p>Packaging workloads into containers and running them reliably on AKS with sane defaults for networking, scaling, and observability.</p>
-                    </div>
-                </div>
+            <div class="tabs" role="group" aria-label="Filter by group">
+                <button type="button" class="tab on" data-filter="all" aria-pressed="true">all</button>
+                <button type="button" class="tab" data-filter="cloud" aria-pressed="false">cloud</button>
+                <button type="button" class="tab" data-filter="iac" aria-pressed="false">iac</button>
+                <button type="button" class="tab" data-filter="cicd" aria-pressed="false">ci/cd</button>
+                <button type="button" class="tab" data-filter="containers" aria-pressed="false">containers</button>
+                <button type="button" class="tab" data-filter="obs" aria-pressed="false">observability</button>
+                <button type="button" class="tab" data-filter="scripting" aria-pressed="false">scripting</button>
+                <button type="button" class="tab" data-filter="platform" aria-pressed="false">platform</button>
             </div>
+            <ul class="chips">
+                <li class="chip" data-group="cloud" style="--c:#5CC8FF">Azure</li>
+                <li class="chip" data-group="cloud" style="--c:#5CC8FF">AWS</li>
+                <li class="chip" data-group="cloud" style="--c:#5CC8FF">GCP</li>
+                <li class="chip" data-group="cloud" style="--c:#5CC8FF">Entra ID</li>
+                <li class="chip" data-group="cloud" style="--c:#5CC8FF">App Services</li>
+                <li class="chip" data-group="cloud" style="--c:#5CC8FF">AKS</li>
+                <li class="chip" data-group="iac" style="--c:#C4A1FF">Terraform</li>
+                <li class="chip" data-group="iac" style="--c:#C4A1FF">Bicep</li>
+                <li class="chip" data-group="iac" style="--c:#C4A1FF">ARM Templates</li>
+                <li class="chip" data-group="iac" style="--c:#C4A1FF">Ansible</li>
+                <li class="chip" data-group="cicd" style="--c:var(--accent)">Azure DevOps</li>
+                <li class="chip" data-group="cicd" style="--c:var(--accent)">GitHub Actions</li>
+                <li class="chip" data-group="cicd" style="--c:var(--accent)">Jenkins</li>
+                <li class="chip" data-group="cicd" style="--c:var(--accent)">GitLab CI</li>
+                <li class="chip" data-group="cicd" style="--c:var(--accent)">ArgoCD</li>
+                <li class="chip" data-group="cicd" style="--c:var(--accent)">FluxCD</li>
+                <li class="chip" data-group="containers" style="--c:#FFB86B">Docker</li>
+                <li class="chip" data-group="containers" style="--c:#FFB86B">Kubernetes</li>
+                <li class="chip" data-group="containers" style="--c:#FFB86B">Helm</li>
+                <li class="chip" data-group="containers" style="--c:#FFB86B">Service Mesh</li>
+                <li class="chip" data-group="obs" style="--c:#FF7A7A">Azure Monitor</li>
+                <li class="chip" data-group="obs" style="--c:#FF7A7A">App Insights</li>
+                <li class="chip" data-group="obs" style="--c:#FF7A7A">Log Analytics</li>
+                <li class="chip" data-group="obs" style="--c:#FF7A7A">Grafana</li>
+                <li class="chip" data-group="scripting" style="--c:#E7ECF2">PowerShell</li>
+                <li class="chip" data-group="scripting" style="--c:#E7ECF2">Python</li>
+                <li class="chip" data-group="scripting" style="--c:#E7ECF2">Bash</li>
+                <li class="chip" data-group="scripting" style="--c:#E7ECF2">Azure CLI</li>
+                <li class="chip" data-group="platform" style="--c:#7FE0D0">Internal Developer Platforms</li>
+                <li class="chip" data-group="platform" style="--c:#7FE0D0">Backstage</li>
+                <li class="chip" data-group="platform" style="--c:#7FE0D0">Golden Paths</li>
+                <li class="chip" data-group="platform" style="--c:#7FE0D0">Self-service Tooling</li>
+                <li class="chip" data-group="platform" style="--c:#7FE0D0">DevEx</li>
+            </ul>
         </section>
 
-        <section id="contact" class="section section-contact">
-            <div class="section-head">
-                <span class="section-num">05.</span>
-                <h2 class="section-title">Get in touch</h2>
-                <span class="section-line"></span>
-            </div>
-            <div class="contact-card">
-                <h3>Let's build something reliable together.</h3>
-                <p>
-                    I'm open to DevOps &amp; cloud engineering opportunities, collaborations,
-                    or a good conversation about pipelines that don't flake. The fastest ways to reach me:
+        <!-- ============ CONTACT ============ -->
+        <section id="contact" class="section wrap contact">
+            <div class="contact-main">
+                <span class="mono sec-kicker">05 / CONTACT</span>
+                <h2 class="sec-title contact-title">Let's build something that doesn't page anyone at 3am.</h2>
+                <p class="sec-lead">
+                    Open to DevOps &amp; cloud engineering opportunities, collaborations,
+                    or a good conversation about pipelines that don't flake.
                 </p>
-                <div class="contact-links">
-                    <a class="contact-link" href="mailto:esener303@gmail.com">
-                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-                        <span class="contact-text">
-                            <strong>Email</strong>
-                            <em>esener303@gmail.com</em>
-                        </span>
+                <div class="socials">
+                    <div class="social-row">
+                        <a class="social" href="mailto:esener303@gmail.com">
+                            <span>Email</span><span class="mono social-sub">esener303@gmail.com</span><span class="arrow" aria-hidden="true">&#8599;</span>
+                        </a>
+                        <button type="button" class="btn btn-ghost copy-btn mono" data-copy="esener303@gmail.com">copy</button>
+                    </div>
+                    <a class="social" href="https://www.linkedin.com/in/michaldemczyszak" target="_blank" rel="noopener noreferrer">
+                        <span>LinkedIn</span><span class="mono social-sub">/in/michaldemczyszak</span><span class="arrow" aria-hidden="true">&#8599;</span>
                     </a>
-                    <a class="contact-link" href="https://www.linkedin.com/in/michaldemczyszak" target="_blank" rel="noopener noreferrer">
-                        <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.36V9h3.41v1.56h.05c.48-.9 1.63-1.85 3.36-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zm1.78 13.02H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0z"/></svg>
-                        <span class="contact-text">
-                            <strong>LinkedIn</strong>
-                            <em>linkedin.com/in/michaldemczyszak</em>
-                        </span>
+                    <a class="social" href="https://github.com/esener303" target="_blank" rel="noopener noreferrer">
+                        <span>GitHub</span><span class="mono social-sub">esener303</span><span class="arrow" aria-hidden="true">&#8599;</span>
                     </a>
-                    <a class="contact-link" href="https://github.com/esener303" target="_blank" rel="noopener noreferrer">
-                        <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.1.79-.25.79-.55v-2.1c-3.2.69-3.87-1.36-3.87-1.36-.52-1.33-1.27-1.69-1.27-1.69-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.18 1.76 1.18 1.03 1.76 2.69 1.25 3.35.96.1-.74.4-1.25.72-1.54-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.28 1.18-3.09-.12-.29-.51-1.46.11-3.04 0 0 .97-.31 3.17 1.18a11.06 11.06 0 0 1 5.78 0c2.2-1.49 3.17-1.18 3.17-1.18.62 1.58.23 2.75.11 3.04.73.81 1.18 1.83 1.18 3.09 0 4.42-2.69 5.39-5.26 5.68.41.36.78 1.06.78 2.14v3.17c0 .31.21.66.8.55A11.51 11.51 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5z"/></svg>
-                        <span class="contact-text">
-                            <strong>GitHub</strong>
-                            <em>github.com/esener303</em>
-                        </span>
+                    <a class="social" href="https://sharepointdevelopmentblog.wordpress.com" target="_blank" rel="noopener noreferrer">
+                        <span>Blog</span><span class="mono social-sub">sharepointdevelopmentblog</span><span class="arrow" aria-hidden="true">&#8599;</span>
                     </a>
-                    <a class="contact-link" href="https://sharepointdevelopmentblog.wordpress.com" target="_blank" rel="noopener noreferrer">
-                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
-                        <span class="contact-text">
-                            <strong>Blog</strong>
-                            <em>sharepointdevelopmentblog.wordpress.com</em>
-                        </span>
+                    <a class="social" href="https://www.instagram.com/3l3c7ro.ai/" target="_blank" rel="noopener noreferrer">
+                        <span>Instagram</span><span class="mono social-sub">@3l3c7ro.ai</span><span class="arrow" aria-hidden="true">&#8599;</span>
                     </a>
-                    <a class="contact-link" href="https://www.instagram.com/3l3c7ro.ai/" target="_blank" rel="noopener noreferrer">
-                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
-                        <span class="contact-text">
-                            <strong>Instagram</strong>
-                            <em>@3l3c7ro.ai</em>
-                        </span>
+                    <a class="social" href="https://apps.apple.com/ch/app/alps-summits/id6775881437" target="_blank" rel="noopener noreferrer">
+                        <span>Alps Summits</span><span class="mono social-sub">App Store</span><span class="arrow" aria-hidden="true">&#8599;</span>
                     </a>
-                    <a class="contact-link" href="https://apps.apple.com/ch/app/alps-summits/id6775881437" target="_blank" rel="noopener noreferrer">
-                        <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M17.05 12.98c-.03-2.6 2.12-3.85 2.22-3.91-1.21-1.77-3.09-2.01-3.76-2.04-1.6-.16-3.12.94-3.93.94-.81 0-2.06-.92-3.39-.9-1.74.03-3.35 1.01-4.25 2.57-1.81 3.14-.46 7.78 1.3 10.32.86 1.24 1.89 2.64 3.23 2.59 1.3-.05 1.79-.84 3.36-.84 1.57 0 2.01.84 3.39.81 1.4-.02 2.28-1.27 3.13-2.52.99-1.44 1.4-2.84 1.42-2.91-.03-.01-2.72-1.04-2.75-4.13M14.48 5.34c.71-.86 1.19-2.06 1.06-3.25-1.02.04-2.26.68-3 1.54-.66.76-1.24 1.98-1.09 3.15 1.14.09 2.31-.58 3.03-1.44"/></svg>
-                        <span class="contact-text">
-                            <strong>App Store</strong>
-                            <em>Alps Summits &mdash; iOS app</em>
-                        </span>
+                    <a class="social" href="https://apps.apple.com/ch/app/abfahrtli/id6799713744" target="_blank" rel="noopener noreferrer">
+                        <span>Abfahrtli</span><span class="mono social-sub">App Store</span><span class="arrow" aria-hidden="true">&#8599;</span>
                     </a>
-                    <a class="contact-link" href="https://apps.apple.com/ch/app/tramli/id6799713744" target="_blank" rel="noopener noreferrer">
-                        <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M17.05 12.98c-.03-2.6 2.12-3.85 2.22-3.91-1.21-1.77-3.09-2.01-3.76-2.04-1.6-.16-3.12.94-3.93.94-.81 0-2.06-.92-3.39-.9-1.74.03-3.35 1.01-4.25 2.57-1.81 3.14-.46 7.78 1.3 10.32.86 1.24 1.89 2.64 3.23 2.59 1.3-.05 1.79-.84 3.36-.84 1.57 0 2.01.84 3.39.81 1.4-.02 2.28-1.27 3.13-2.52.99-1.44 1.4-2.84 1.42-2.91-.03-.01-2.72-1.04-2.75-4.13M14.48 5.34c.71-.86 1.19-2.06 1.06-3.25-1.02.04-2.26.68-3 1.54-.66.76-1.24 1.98-1.09 3.15 1.14.09 2.31-.58 3.03-1.44"/></svg>
-                        <span class="contact-text">
-                            <strong>App Store</strong>
-                            <em>Tramli &mdash; iOS app</em>
-                        </span>
+                    <a class="social" href="https://helvetiapixel.ch" target="_blank" rel="noopener noreferrer">
+                        <span>Helvetia Pixel</span><span class="mono social-sub">helvetiapixel.ch</span><span class="arrow" aria-hidden="true">&#8599;</span>
                     </a>
-                    <a class="contact-link" href="https://helvetiapixel.ch" target="_blank" rel="noopener noreferrer">
-                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
-                        <span class="contact-text">
-                            <strong>Helvetia Pixel</strong>
-                            <em>helvetiapixel.ch &mdash; digital agency</em>
-                        </span>
-                    </a>
+                </div>
+            </div>
+
+            <div class="term tf" data-reveal>
+                <div class="term-bar">
+                    <span class="term-light" style="background:#FF7A7A"></span>
+                    <span class="term-light" style="background:#FFB86B"></span>
+                    <span class="term-light" style="background:#7CF29A"></span>
+                    <span class="mono term-name">hire.tf — terraform</span>
+                </div>
+                <div class="term-body mono" aria-live="polite">
+                    <div class="tl cmd">$ terraform plan -out=hire.tfplan</div>
+                    <div class="tl out">&nbsp;</div>
+                    <div class="tl out"># team.cloud_engineer["michal"] will be created</div>
+                    <div class="tl ok">+ resource "team" "cloud_engineer" {</div>
+                    <div class="tl ok">    + name   = "Michał Demczyszak"</div>
+                    <div class="tl ok">    + role   = "DevOps / Azure Architect"</div>
+                    <div class="tl ok">    + base   = "Switzerland"</div>
+                    <div class="tl ok">    + stack  = ["Azure", "Terraform", "Kubernetes"]</div>
+                    <div class="tl ok">    + coffee = true</div>
+                    <div class="tl ok">  }</div>
+                    <div class="tl out">&nbsp;</div>
+                    <div class="tl cmd">Plan: 1 to add, 0 to change, 0 to destroy.</div>
+                    <div class="tl out">&nbsp;</div>
+                    <div id="tf-ask">
+                        <div class="tl out">Do you want to perform these actions?</div>
+                        <div class="tl out">  Only 'yes' will be accepted to approve.</div>
+                        <div class="tl err" id="tf-err" hidden>Error: apply cancelled. (it really does have to be 'yes')</div>
+                        <form class="tf-form" id="tf-form">
+                            <label for="tf-input">Enter a value:</label>
+                            <input id="tf-input" class="term-input" type="text" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="yes" />
+                            <button type="submit" class="tab mono">yes &#8629;</button>
+                        </form>
+                    </div>
+                    <div id="tf-out"></div>
+                    <div class="tf-done" id="tf-done" hidden>
+                        <a class="btn btn-primary" href="mailto:esener303@gmail.com?subject=Let%27s%20work%20together">
+                            Get in touch
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+                        </a>
+                        <button type="button" class="btn btn-ghost" id="tf-reset">plan again</button>
+                    </div>
                 </div>
             </div>
         </section>
@@ -489,12 +490,9 @@
         <svg class="audio-icon icon-off" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/></svg>
     </button>
 
-    <footer class="footer">
-        <p>
-            Crafted with <span class="footer-heart">&lt;3</span> and a lot of <span class="footer-coffee">coffee</span>
-            &middot; &copy; <span id="year">2026</span> Michał Demczyszak
-        </p>
-        <p class="footer-sub">Built &amp; deployed on GitHub Pages</p>
+    <footer class="footer wrap mono">
+        <span>&copy; <span id="year">2026</span> Michał Demczyszak</span>
+        <span class="dim">built with &lt;3, coffee &amp; zero manual deploys &middot; GitHub Pages + Azure SWA</span>
     </footer>
 
     <script src="script.js"></script>
