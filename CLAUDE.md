@@ -8,7 +8,7 @@ This is a static personal portfolio website for Michał Demczyszak (michaldemczy
 
 ## Architecture
 
-**Static site**: The site is `index.html` with `styles.css` and `script.js`. No build tools or JS framework. All icons are inline SVG.
+**Static site**: The site is `index.html` with `styles.css`, `script.js` and `playground.js`. No build tools or JS framework. All icons are inline SVG.
 
 **Assets**:
 - `favicon.svg` - Site favicon
@@ -45,6 +45,7 @@ Since this is a static HTML site:
 - `index.html` - Main HTML page
 - `styles.css` - Site styles
 - `script.js` - Typed role, scroll reveal, nav toggle, stack filter, terraform-apply contact terminal, background music
+- `playground.js` - Worker bots (drag/throw, hire, coffee), hanging/painter/sitter bots, interactive hero shell, big marquee, matrix rain, confetti
 - `favicon.svg` - Site favicon
 - `CNAME` - Custom domain configuration
 - `robots.txt`, `sitemap.xml` - SEO

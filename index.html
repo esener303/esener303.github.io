@@ -59,11 +59,11 @@
         <nav class="nav-in" aria-label="Primary">
             <a href="#top" class="mono nav-brand" aria-label="Home">michal<span class="accent">.sh</span><span class="cursor" aria-hidden="true"></span></a>
             <ul class="nav-links">
-                <li><a class="nav-link mono" href="#about">about</a></li>
-                <li><a class="nav-link mono" href="#projects">projects</a></li>
-                <li><a class="nav-link mono" href="#experience">experience</a></li>
-                <li><a class="nav-link mono" href="#stack">stack</a></li>
-                <li><a class="nav-link mono" href="#contact">contact</a></li>
+                <li><a class="nav-link mono" href="#about">./about</a></li>
+                <li><a class="nav-link mono" href="#projects">./projects</a></li>
+                <li><a class="nav-link mono" href="#experience">./experience</a></li>
+                <li><a class="nav-link mono" href="#stack">./stack</a></li>
+                <li><a class="nav-link mono" href="#contact">./contact</a></li>
             </ul>
             <div class="nav-tools">
                 <span class="nav-status mono"><span class="live-dot"></span><span class="nav-status-txt">all systems operational</span></span>
@@ -84,7 +84,7 @@
                     <span class="hero-clock" title="Local time in Switzerland">CH <span id="ch-time">--:--</span></span>
                 </div>
                 <h1 class="hero-name reveal-now d1">
-                    <span class="glitch" data-text="Michał">Michał</span><span class="accent">.</span>
+                    <span class="glitch" data-text="Michał">Michał</span><span class="dot-hang accent">.<button type="button" class="hang" aria-label="A tiny bot hanging from the dot. Click to swing it." style="--bot:#FFB86B"><span class="cable" aria-hidden="true"></span><span data-bot="hang"></span><span class="bubble mono" aria-hidden="true"></span></button></span>
                 </h1>
                 <p class="hero-role mono reveal-now d2">
                     <span class="accent">&gt;</span> <span id="typed-role"></span><span class="cursor" aria-hidden="true"></span>
@@ -106,40 +106,45 @@
                 </div>
             </div>
 
-            <div class="term reveal-now d3" aria-hidden="true">
-                <div class="term-bar">
-                    <span class="term-light" style="background:#FF7A7A"></span>
-                    <span class="term-light" style="background:#FFB86B"></span>
-                    <span class="term-light" style="background:#7CF29A"></span>
-                    <span class="mono term-name">~/devops — zsh</span>
-                </div>
-                <div class="term-body mono">
-                    <div class="tl cmd"><span class="accent">michal@azure</span>:<span class="blue">~</span>$ cat profile.json</div>
-<pre class="tl out">{
-  <span class="key">"name"</span>: <span class="str">"Michał"</span>,
-  <span class="key">"role"</span>: <span class="str">"DevOps &amp; Cloud Engineer"</span>,
-  <span class="key">"experience"</span>: <span class="str">"Enterprise &amp; Finance Infrastructure"</span>,
-  <span class="key">"passion"</span>: [
-    <span class="str">"DevSecOps"</span>, <span class="str">"Cloud Architecture"</span>,
-    <span class="str">"GitOps"</span>, <span class="str">"Cloud Security Engineering"</span>
-  ],
-  <span class="key">"focus"</span>: [
-    <span class="str">"Automation &amp; CI/CD"</span>, <span class="str">"Kubernetes &amp; AKS"</span>,
-    <span class="str">"Infrastructure as Code"</span>, <span class="str">"Observability"</span>
-  ],
-  <span class="key">"approach"</span>: <span class="str">"Bridging delivery with business outcomes"</span>,
-  <span class="key">"coffee"</span>: <span class="bool">true</span>
-}</pre>
-                    <div class="tl cmd"><span class="accent">michal@azure</span>:<span class="blue">~</span>$ <span class="cursor"></span></div>
+            <div class="hero-side reveal-now d3">
+                <button type="button" class="sitter" aria-label="A tiny bot sitting on the terminal. Click to say hi." style="--bot:#5CC8FF">
+                    <span class="bubble mono" aria-hidden="true"></span><span data-bot="sit"></span>
+                </button>
+                <div class="term hero-term">
+                    <div class="term-bar">
+                        <span class="term-light" style="background:#FF7A7A"></span>
+                        <span class="term-light" style="background:#FFB86B"></span>
+                        <span class="term-light" style="background:#7CF29A"></span>
+                        <span class="mono term-name">visitor@michal — zsh — 80×24</span>
+                    </div>
+                    <div class="term-body shell-body mono" id="shell-body">
+                        <div id="shell-out" aria-live="polite">
+                            <noscript><div class="tl out">Michał Demczyszak — DevOps Engineer &amp; Azure Cloud Solutions Architect.</div></noscript>
+                        </div>
+                        <form class="shell-form" id="shell-form" autocomplete="off">
+                            <label for="shell-in"><span class="accent">visitor@prod</span>:<span class="blue">~</span>$</label>
+                            <input id="shell-in" class="term-input" type="text" autocapitalize="off" spellcheck="false" placeholder="type 'help'" />
+                        </form>
+                    </div>
+                    <div class="shell-chips">
+                        <button type="button" class="chip-cmd mono" data-cmd="help">help</button>
+                        <button type="button" class="chip-cmd mono" data-cmd="neofetch">neofetch</button>
+                        <button type="button" class="chip-cmd mono" data-cmd="cat profile.json">cat profile.json</button>
+                        <button type="button" class="chip-cmd mono" data-cmd="deploy">deploy</button>
+                        <button type="button" class="chip-cmd mono" data-cmd="kubectl get pods">kubectl get pods</button>
+                        <button type="button" class="chip-cmd mono" data-cmd="hire">hire</button>
+                        <button type="button" class="chip-cmd mono" data-cmd="coffee">coffee</button>
+                        <button type="button" class="chip-cmd mono" data-cmd="matrix">matrix</button>
+                        <button type="button" class="chip-cmd mono" data-cmd="self-destruct">self-destruct</button>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <!-- ============ MARQUEE ============ -->
-        <div class="marquee mono" aria-hidden="true">
-            <div class="track">
-                <span>Azure</span><span class="sep">/</span><span>Terraform</span><span class="sep">/</span><span>Kubernetes</span><span class="sep">/</span><span>Bicep</span><span class="sep">/</span><span>GitHub Actions</span><span class="sep">/</span><span>Azure DevOps</span><span class="sep">/</span><span>ArgoCD</span><span class="sep">/</span><span>Docker</span><span class="sep">/</span><span>Helm</span><span class="sep">/</span><span>PowerShell</span><span class="sep">/</span><span>Python</span><span class="sep">/</span><span>Grafana</span><span class="sep">/</span><span>Swift</span><span class="sep">/</span>
-                <span>Azure</span><span class="sep">/</span><span>Terraform</span><span class="sep">/</span><span>Kubernetes</span><span class="sep">/</span><span>Bicep</span><span class="sep">/</span><span>GitHub Actions</span><span class="sep">/</span><span>Azure DevOps</span><span class="sep">/</span><span>ArgoCD</span><span class="sep">/</span><span>Docker</span><span class="sep">/</span><span>Helm</span><span class="sep">/</span><span>PowerShell</span><span class="sep">/</span><span>Python</span><span class="sep">/</span><span>Grafana</span><span class="sep">/</span><span>Swift</span><span class="sep">/</span>
+        <!-- ============ BIG MARQUEE ============ -->
+        <div class="vm" aria-hidden="true">
+            <div class="vm-track" id="vm-track">
+                <span class="vm-word">Azure</span><span class="vm-sep">/</span><span class="vm-word">Terraform</span><span class="vm-sep">/</span><span class="vm-word">Kubernetes</span><span class="vm-sep">/</span>
             </div>
         </div>
 
@@ -490,11 +495,21 @@
         <svg class="audio-icon icon-off" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/></svg>
     </button>
 
+    <canvas id="matrix-bg" aria-hidden="true" hidden></canvas>
+    <div id="bots" aria-hidden="true"></div>
+    <div class="crew mono" id="crew">
+        <span class="live-dot"></span>
+        <span><span id="crew-count">0</span><span class="crew-txt"> workers on shift</span></span>
+        <button type="button" id="crew-hire">+ hire</button>
+        <button type="button" id="crew-coffee">coffee break</button>
+    </div>
+
     <footer class="footer wrap mono">
         <span>&copy; <span id="year">2026</span> Michał Demczyszak</span>
         <span class="dim">built with &lt;3, coffee &amp; zero manual deploys &middot; GitHub Pages + Azure SWA</span>
     </footer>
 
     <script src="script.js"></script>
+    <script src="playground.js"></script>
 </body>
 </html>
