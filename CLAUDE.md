@@ -46,7 +46,8 @@ Since this is a static HTML site:
 - `styles.css` - Site styles
 - `script.js` - Typed role, scroll reveal, nav toggle, stack filter, terraform-apply contact terminal, background music
 - `playground.js` - Worker bots (drag/throw, hire, coffee), hanging/painter/sitter bots, interactive hero shell, big marquee, matrix rain, confetti
-- `favicon.svg` - Site favicon
+- `favicon.svg` - Site favicon ("M_" terminal-style)
+- `apple-touch-icon.png` - 180×180 iOS home-screen icon
 - `og-image.png` - 1200×630 social link-preview image (referenced by og:image / twitter:image)
 - `CNAME` - Custom domain configuration
 - `robots.txt`, `sitemap.xml` - SEO
