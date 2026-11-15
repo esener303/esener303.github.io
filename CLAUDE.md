@@ -47,6 +47,7 @@ Since this is a static HTML site:
 - `script.js` - Typed role, scroll reveal, nav toggle, stack filter, terraform-apply contact terminal, background music
 - `playground.js` - Worker bots (drag/throw, hire, coffee), hanging/painter/sitter bots, interactive hero shell, big marquee, matrix rain, confetti
 - `favicon.svg` - Site favicon
+- `og-image.png` - 1200×630 social link-preview image (referenced by og:image / twitter:image)
 - `CNAME` - Custom domain configuration
 - `robots.txt`, `sitemap.xml` - SEO
 - `.github/workflows/` - CI/CD configurations
