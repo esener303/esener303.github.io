@@ -434,7 +434,8 @@
             ['Azure', '#5CC8FF'], ['Terraform', '#C4A1FF'], ['Kubernetes', '#5CC8FF'], ['Bicep', '#FFB86B'],
             ['GitHub Actions', '#7CF29A'], ['ArgoCD', '#FF7A7A'], ['Docker', '#5CC8FF'], ['Helm', '#7FE0D0'],
             ['Grafana', '#FFB86B'], ['PowerShell', '#5CC8FF'], ['Python', '#FFB86B'], ['Ansible', '#FF7A7A'],
-            ['Azure DevOps', '#7CF29A'], ['Swift', '#FF7A7A'], ['Bash', '#7CF29A'], ['YAML', '#C4A1FF']
+            ['Azure DevOps', '#7CF29A'], ['Prometheus', '#FF7A7A'], ['Datadog', '#C4A1FF'], ['SonarQube', '#5CC8FF'],
+            ['Keycloak', '#FFB86B'], ['Swift', '#FF7A7A'], ['Bash', '#7CF29A'], ['YAML', '#C4A1FF']
         ];
         const html = words.map(([w, c]) => '<span class="vm-word" style="--c:' + c + '">' + w + '</span><span class="vm-sep">/</span>').join('');
         vmTrack.innerHTML = html + html;
