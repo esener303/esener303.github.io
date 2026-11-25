@@ -3,15 +3,15 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Michał Demczyszak — DevOps Engineer and Azure Cloud Solutions Architect. Cloud architecture, automation, and reliable software delivery." />
+    <meta name="description" content="Michał Demczyszak — Security Engineer (Detection &amp; Response) in Zürich. Security logging pipelines, Splunk SIEM, SentinelOne XDR, Kubernetes and Azure cloud security, Infrastructure as Code." />
     <meta name="author" content="Michał Demczyszak" />
-    <meta name="keywords" content="Michał Demczyszak, DevOps Engineer, Azure Cloud Solutions Architect, Infrastructure as Code, Portfolio" />
+    <meta name="keywords" content="Michał Demczyszak, Security Engineer, Detection and Response, SIEM, Splunk, SentinelOne, XDR, Security Logging, Kubernetes Security, Azure, Azure Arc, DevSecOps, Terraform, Zürich" />
     <meta name="theme-color" content="#0a0c0f" />
 
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://michaldemczyszak.com/" />
     <meta property="og:title" content="Michał Demczyszak — DevOps Engineer and Azure Cloud Solutions Architect" />
-    <meta property="og:description" content="DevOps Engineer and Azure Cloud Solutions Architect specializing in cloud automation, infrastructure as code, and reliable software delivery." />
+    <meta property="og:description" content="Security Engineer focused on detection &amp; response: security logging into Splunk SIEM, hybrid telemetry into SentinelOne XDR, and hardened Kubernetes on Azure — all as code." />
     <meta property="og:site_name" content="Michał Demczyszak" />
     <meta property="og:locale" content="en_US" />
     <meta property="og:image" content="https://michaldemczyszak.com/og-image.png" />
@@ -24,11 +24,11 @@
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:url" content="https://michaldemczyszak.com/" />
     <meta name="twitter:title" content="Michał Demczyszak — DevOps Engineer and Azure Cloud Solutions Architect" />
-    <meta name="twitter:description" content="DevOps Engineer and Azure Cloud Solutions Architect specializing in cloud automation and reliable software delivery." />
+    <meta name="twitter:description" content="Security Engineer focused on detection &amp; response, SIEM/XDR, Kubernetes and Azure cloud security." />
     <meta name="twitter:image" content="https://michaldemczyszak.com/og-image.png" />
     <meta name="twitter:image:alt" content="Michał Demczyszak — DevOps Engineer and Azure Cloud Solutions Architect" />
 
-    <title>Michał Demczyszak | DevOps Engineer &amp; Azure Cloud Solutions Architect</title>
+    <title>Michał Demczyszak | Security Engineer — Detection &amp; Response</title>
     <link rel="canonical" href="https://michaldemczyszak.com/" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -45,7 +45,16 @@
         "@context": "https://schema.org",
         "@type": "Person",
         "name": "Michał Demczyszak",
-        "jobTitle": "DevOps Engineer and Azure Cloud Solutions Architect",
+        "jobTitle": "Security Engineer — Detection & Response",
+        "address": { "@type": "PostalAddress", "addressLocality": "Zürich", "addressCountry": "CH" },
+        "knowsAbout": ["Security Logging", "SIEM", "Splunk", "SentinelOne XDR", "Incident Response", "Kubernetes Security", "Microsoft Azure", "Azure Arc", "Terraform", "IAM", "Keycloak", "DevSecOps"],
+        "hasCredential": [
+            { "@type": "EducationalOccupationalCredential", "name": "Microsoft Certified: DevOps Engineer Expert (AZ-400)" },
+            { "@type": "EducationalOccupationalCredential", "name": "Microsoft Certified: Azure Administrator Associate (AZ-104)" },
+            { "@type": "EducationalOccupationalCredential", "name": "Cyber & Information Security" },
+            { "@type": "EducationalOccupationalCredential", "name": "ITIL v3 Foundation" }
+        ],
+        "alumniOf": { "@type": "CollegeOrUniversity", "name": "Wrocław University of Economics" },
         "url": "https://michaldemczyszak.com",
         "sameAs": [
             "https://www.linkedin.com/in/michaldemczyszak",
@@ -72,6 +81,7 @@
                 <li><a class="nav-link mono" href="#projects">./projects</a></li>
                 <li><a class="nav-link mono" href="#experience">./experience</a></li>
                 <li><a class="nav-link mono" href="#stack">./stack</a></li>
+                <li><a class="nav-link mono" href="#certs">./certs</a></li>
                 <li><a class="nav-link mono" href="#contact">./contact</a></li>
             </ul>
             <div class="nav-tools">
@@ -89,7 +99,7 @@
             <div class="hero-main">
                 <div class="pill mono reveal-now">
                     <span class="live-dot"></span>
-                    DevOps Engineer / Azure Architect
+                    Security Engineer / Detection &amp; Response
                     <span class="hero-clock" title="Local time in Switzerland">CH <span id="ch-time">--:--</span></span>
                 </div>
                 <h1 class="hero-name reveal-now d1">
@@ -99,9 +109,10 @@
                     <span class="accent">&gt;</span> <span id="typed-role"></span><span class="cursor" aria-hidden="true"></span>
                 </p>
                 <p class="hero-desc reveal-now d2">
-                    I design and automate cloud infrastructure on Azure, build
-                    resilient CI/CD pipelines, and keep production boring &mdash;
-                    predictable, observable, and easy to rebuild from scratch.
+                    I build the data foundation detection depends on &mdash; security
+                    logging into Splunk SIEM, hybrid telemetry into SentinelOne XDR, and
+                    hardened Kubernetes on Azure for a FINMA-regulated platform in Zürich.
+                    All as code, over private endpoints.
                 </p>
                 <div class="hero-cta reveal-now d3">
                     <a href="#contact" class="btn btn-primary">
@@ -128,7 +139,7 @@
                     </div>
                     <div class="term-body shell-body mono" id="shell-body">
                         <div id="shell-out" aria-live="polite">
-                            <noscript><div class="tl out">Michał Demczyszak — DevOps Engineer &amp; Azure Cloud Solutions Architect.</div></noscript>
+                            <noscript><div class="tl out">Michał Demczyszak — Security Engineer, Detection &amp; Response.</div></noscript>
                         </div>
                         <form class="shell-form" id="shell-form" autocomplete="off">
                             <label for="shell-in"><span class="accent">visitor@prod</span>:<span class="blue">~</span>$</label>
@@ -153,7 +164,7 @@
         <!-- ============ BIG MARQUEE ============ -->
         <div class="vm" aria-hidden="true">
             <div class="vm-track" id="vm-track">
-                <span class="vm-word">Azure</span><span class="vm-sep">/</span><span class="vm-word">Terraform</span><span class="vm-sep">/</span><span class="vm-word">Kubernetes</span><span class="vm-sep">/</span>
+                <span class="vm-word">Splunk</span><span class="vm-sep">/</span><span class="vm-word">SentinelOne</span><span class="vm-sep">/</span><span class="vm-word">Kubernetes</span><span class="vm-sep">/</span>
             </div>
         </div>
 
@@ -161,24 +172,32 @@
         <section id="about" class="section wrap">
             <div class="sec-head">
                 <span class="mono sec-kicker">01 / ABOUT</span>
-                <h2 class="sec-title">Infrastructure should be boring.</h2>
+                <h2 class="sec-title">You can't detect what you don't log.</h2>
                 <p class="sec-lead">
-                    Hi, I'm <strong>Michał</strong> &mdash; a DevOps Engineer and Azure Cloud Solutions
-                    Architect who genuinely enjoys turning messy, manual processes into clean,
-                    repeatable pipelines.
+                    Hi, I'm <strong>Michał</strong> &mdash; a security-focused platform engineer
+                    with <strong>10+ years</strong> in production environments, now working on
+                    detection &amp; response in Zürich.
                 </p>
             </div>
             <div class="about-grid">
                 <div class="about-text" data-reveal>
                     <p>
-                        My day-to-day mixes <strong>cloud architecture</strong>,
-                        <strong>infrastructure as code</strong>, and close collaboration
-                        with developers to ship software that just works. I've spent
-                        years modernizing legacy workloads and bringing them up to
-                        <strong>cloud-native</strong> standards on Azure.
+                        I secure and operate the <strong>Kubernetes and Azure platform</strong>
+                        behind a <strong>FINMA-regulated</strong> financial-services product.
+                        I built Kubernetes logging into <strong>Splunk SIEM</strong>, onboarded
+                        on-prem servers via <strong>Azure Arc</strong> into Log Analytics feeding
+                        <strong>SentinelOne XDR</strong>, and run Fluent Bit forwarding across
+                        <strong>16 clusters</strong> &mdash; all Terraform, no public log endpoints.
+                    </p>
+                    <p>
+                        Beyond the pipelines I own <strong>alerting and incident investigation
+                        to root cause</strong>, IAM on Keycloak &amp; Entra ID, secrets, certificates
+                        and keys, and SAST / vulnerability gates in every pipeline &mdash; working
+                        closely with the engineering teams who ship on the platform.
                     </p>
                     <p class="mono dim">// when I'm not deploying things:</p>
                     <ul class="about-list">
+                        <li>Skiing, hiking and stand-up paddling around Switzerland</li>
                         <li>Writing on my SharePoint development blog</li>
                         <li>Shipping my own iOS apps to the App Store</li>
                         <li>Tinkering with new automation and IaC tools</li>
@@ -187,20 +206,20 @@
                 </div>
                 <div class="impact-grid">
                     <div class="impact" data-reveal style="--c:var(--accent)">
-                        <span class="impact-num"><span class="stat-num" data-target="100">0</span>%</span>
-                        <span class="impact-lbl">commitment to automation</span>
+                        <span class="impact-num"><span class="stat-num" data-target="10">0</span>+</span>
+                        <span class="impact-lbl">years in production environments</span>
                     </div>
                     <div class="impact" data-reveal style="--c:#5CC8FF">
-                        <span class="impact-num"><span class="stat-num" data-target="0">0</span></span>
-                        <span class="impact-lbl">manual deploys this sprint</span>
+                        <span class="impact-num"><span class="stat-num" data-target="16">0</span></span>
+                        <span class="impact-lbl">Kubernetes clusters shipping logs via Fluent Bit</span>
                     </div>
                     <div class="impact" data-reveal style="--c:#C4A1FF">
-                        <span class="impact-num"><span class="stat-num" data-target="42">0</span>+</span>
-                        <span class="impact-lbl">pipelines maintained &amp; counting</span>
+                        <span class="impact-num"><span class="stat-num" data-target="50">0</span>K+</span>
+                        <span class="impact-lbl">Azure resources on an APAC / EMEA / NAM platform</span>
                     </div>
                     <div class="impact" data-reveal style="--c:#FFB86B">
-                        <span class="impact-num"><span class="stat-num" data-target="2">0</span></span>
-                        <span class="impact-lbl">iOS apps live on the App Store</span>
+                        <span class="impact-num"><span class="stat-num" data-target="0">0</span></span>
+                        <span class="impact-lbl">public endpoints exposing log traffic</span>
                     </div>
                 </div>
             </div>
@@ -286,8 +305,8 @@
         <section id="experience" class="section wrap">
             <div class="sec-head">
                 <span class="mono sec-kicker">03 / EXPERIENCE</span>
-                <h2 class="sec-title mono-title">git log --what-i-do</h2>
-                <p class="sec-lead">What a typical week looks like. Click a commit to see the diff.</p>
+                <h2 class="sec-title mono-title">git log --career</h2>
+                <p class="sec-lead">10+ years, newest first. Click a commit to see the diff.</p>
             </div>
             <div class="commits">
                 <details class="commit" data-reveal open>
@@ -295,65 +314,68 @@
                         <span class="commit-dot" aria-hidden="true"></span>
                         <span class="mono hash">a3f9c21</span>
                         <span class="mono ref">HEAD -&gt; main</span>
-                        <span class="commit-title">Cloud architecture on Azure</span>
+                        <span class="commit-title">DevOps / DevSecOps &amp; Cloud Engineer <span class="commit-org">@ Fides Treasury Services</span></span>
+                        <span class="mono commit-date">11/2023 – present · Zürich</span>
                     </summary>
                     <div class="diff mono">
-                        <div class="diff-line hdr">@@ landing-zones/ @@</div>
-                        <div class="diff-line del">- click-ops subscriptions, flat networks, shared admin accounts</div>
-                        <div class="diff-line add">+ landing zones, hub-spoke networking &amp; Entra ID identity that scale safely from day one</div>
-                        <div class="diff-line add">+ cost and security baked in, not bolted on</div>
+                        <div class="diff-line hdr">@@ detection/ k8s/ iam/ &mdash; FINMA-regulated SaaS @@</div>
+                        <div class="diff-line add">+ enterprise logging across Kubernetes with Fluentd / Fluent Bit &rarr; Splunk SIEM for search, alerting &amp; investigation</div>
+                        <div class="diff-line add">+ hybrid security telemetry: on-prem servers &amp; VM fleets onboarded via Azure Arc &rarr; Log Analytics &rarr; SentinelOne XDR</div>
+                        <div class="diff-line add">+ every pipeline delivered as code (Terraform) over private endpoints &mdash; no public exposure of log traffic</div>
+                        <div class="diff-line add">+ secure &amp; operate production Kubernetes (RBAC, network policy, TLS, hardening); own alerting and lead incident investigation to root cause</div>
+                        <div class="diff-line add">+ IAM on Keycloak with Entra ID; own secrets, certificates &amp; keys; SAST &amp; security gates in GitHub Actions / Flux CD</div>
                     </div>
                 </details>
                 <details class="commit" data-reveal>
                     <summary class="commit-head">
                         <span class="commit-dot" aria-hidden="true"></span>
                         <span class="mono hash">7be04d8</span>
-                        <span class="commit-title">Infrastructure as code</span>
+                        <span class="commit-title">DevOps Engineer <span class="commit-org">@ CSHARK</span></span>
+                        <span class="mono commit-date">12/2022 – 11/2023 · Wrocław</span>
                     </summary>
                     <div class="diff mono">
-                        <div class="diff-line hdr">@@ infra/*.tf infra/*.bicep @@</div>
-                        <div class="diff-line del">- "works on the portal", undocumented manual changes</div>
-                        <div class="diff-line add">+ versioned, peer-reviewed Terraform &amp; Bicep</div>
-                        <div class="diff-line add">+ environments that are reproducible and disposable</div>
+                        <div class="diff-line hdr">@@ azure/ &mdash; 50K+ resources across APAC, EMEA &amp; NAM @@</div>
+                        <div class="diff-line add">+ Fluent Bit log forwarding across 16 Kubernetes clusters into Kibana, secured via private endpoints, deployed as code</div>
+                        <div class="diff-line add">+ led vulnerability management &amp; static code analysis &mdash; scanning and quality gates in every pipeline</div>
+                        <div class="diff-line add">+ reusable Terraform modules &amp; Helm charts for AKS delivered via Argo CD</div>
                     </div>
                 </details>
                 <details class="commit" data-reveal>
                     <summary class="commit-head">
                         <span class="commit-dot" aria-hidden="true"></span>
                         <span class="mono hash">e51c9a0</span>
-                        <span class="commit-title">CI/CD &amp; release automation</span>
+                        <span class="commit-title">DevOps Engineer <span class="commit-org">@ Angry Nerds</span></span>
+                        <span class="mono commit-date">06/2021 – 12/2022 · Wrocław</span>
                     </summary>
                     <div class="diff mono">
-                        <div class="diff-line hdr">@@ .github/workflows/ azure-pipelines.yml @@</div>
-                        <div class="diff-line del">- Friday-evening deploys and a 12-step wiki checklist</div>
-                        <div class="diff-line add">+ fast, reliable pipelines in Azure DevOps &amp; GitHub Actions</div>
-                        <div class="diff-line add">+ teams ship more often with less drama</div>
+                        <div class="diff-line hdr">@@ clients/ &mdash; SMB &amp; enterprise SaaS @@</div>
+                        <div class="diff-line add">+ Docker-based delivery, CI/CD, IaC, observability and security tooling</div>
+                        <div class="diff-line add">+ mentored peers and co-authored the engineering knowledge base</div>
                     </div>
                 </details>
                 <details class="commit" data-reveal>
                     <summary class="commit-head">
                         <span class="commit-dot" aria-hidden="true"></span>
                         <span class="mono hash">0c2d6f4</span>
-                        <span class="commit-title">Containerization &amp; Kubernetes</span>
+                        <span class="commit-title">Senior Software Engineer / Cloud Engineer <span class="commit-org">@ Konica Minolta Business Solutions</span></span>
+                        <span class="mono commit-date">06/2017 – 05/2021 · Warsaw</span>
                     </summary>
                     <div class="diff mono">
-                        <div class="diff-line hdr">@@ charts/ manifests/ @@</div>
-                        <div class="diff-line del">- snowflake VMs nobody dares to reboot</div>
-                        <div class="diff-line add">+ containerized workloads running reliably on AKS</div>
-                        <div class="diff-line add">+ sane defaults for networking, scaling &amp; observability</div>
+                        <div class="diff-line hdr">@@ hybrid-cloud/ @@</div>
+                        <div class="diff-line add">+ architected cloud &amp; hybrid infrastructure with a focus on IAM, cryptography and network security</div>
+                        <div class="diff-line add">+ PowerShell-automated migrations</div>
                     </div>
                 </details>
                 <details class="commit" data-reveal>
                     <summary class="commit-head">
                         <span class="commit-dot" aria-hidden="true"></span>
                         <span class="mono hash">9d18b73</span>
-                        <span class="commit-title">Platform engineering &amp; DevEx</span>
+                        <span class="commit-title">SharePoint Administrator / Developer <span class="commit-org">@ NEWIND S.A.</span></span>
+                        <span class="mono commit-date">06/2015 – 05/2017 · Wrocław</span>
                     </summary>
                     <div class="diff mono">
-                        <div class="diff-line hdr">@@ platform/ @@</div>
-                        <div class="diff-line del">- "open a ticket and wait two weeks"</div>
-                        <div class="diff-line add">+ golden paths &amp; self-service tooling for developers</div>
-                        <div class="diff-line add">+ GitOps with ArgoCD / FluxCD as the source of truth</div>
+                        <div class="diff-line hdr">@@ init @@</div>
+                        <div class="diff-line add">+ web apps in C# / ASP.NET, SharePoint &amp; SQL migrations, PowerShell automation</div>
                     </div>
                 </details>
             </div>
@@ -368,6 +390,7 @@
             </div>
             <div class="tabs" role="group" aria-label="Filter by group">
                 <button type="button" class="tab on" data-filter="all" aria-pressed="true">all</button>
+                <button type="button" class="tab" data-filter="detection" aria-pressed="false">detection</button>
                 <button type="button" class="tab" data-filter="cloud" aria-pressed="false">cloud</button>
                 <button type="button" class="tab" data-filter="iac" aria-pressed="false">iac</button>
                 <button type="button" class="tab" data-filter="cicd" aria-pressed="false">ci/cd</button>
@@ -384,6 +407,8 @@
                 <li class="chip" data-group="cloud" style="--c:#5CC8FF">Entra ID</li>
                 <li class="chip" data-group="cloud" style="--c:#5CC8FF">App Services</li>
                 <li class="chip" data-group="cloud" style="--c:#5CC8FF">AKS</li>
+                <li class="chip" data-group="cloud" style="--c:#5CC8FF">Azure Arc</li>
+                <li class="chip" data-group="cloud" style="--c:#5CC8FF">Private Endpoints</li>
                 <li class="chip" data-group="iac" style="--c:#C4A1FF">Terraform</li>
                 <li class="chip" data-group="iac" style="--c:#C4A1FF">Bicep</li>
                 <li class="chip" data-group="iac" style="--c:#C4A1FF">ARM Templates</li>
@@ -407,16 +432,33 @@
                 <li class="chip" data-group="obs" style="--c:#FF7A7A">Prometheus</li>
                 <li class="chip" data-group="obs" style="--c:#FF7A7A">Datadog</li>
                 <li class="chip" data-group="obs" style="--c:#FF7A7A">Alerting &amp; SLOs</li>
+                <li class="chip" data-group="detection" style="--c:#FF9AD5">Splunk SIEM</li>
+                <li class="chip" data-group="detection" style="--c:#FF9AD5">SentinelOne XDR</li>
+                <li class="chip" data-group="detection" style="--c:#FF9AD5">Fluentd</li>
+                <li class="chip" data-group="detection" style="--c:#FF9AD5">Fluent Bit</li>
+                <li class="chip" data-group="detection" style="--c:#FF9AD5">Kibana</li>
+                <li class="chip" data-group="detection" style="--c:#FF9AD5">Security Logging Pipelines</li>
+                <li class="chip" data-group="detection" style="--c:#FF9AD5">Alerting &amp; Investigation</li>
+                <li class="chip" data-group="detection" style="--c:#FF9AD5">Root Cause Analysis</li>
+                <li class="chip" data-group="detection" style="--c:#FF9AD5">Incident Response &amp; On-call</li>
                 <li class="chip" data-group="security" style="--c:#FFD866">DevSecOps</li>
                 <li class="chip" data-group="security" style="--c:#FFD866">SonarQube</li>
                 <li class="chip" data-group="security" style="--c:#FFD866">Keycloak</li>
                 <li class="chip" data-group="security" style="--c:#FFD866">IAM</li>
                 <li class="chip" data-group="security" style="--c:#FFD866">Key Vault</li>
                 <li class="chip" data-group="security" style="--c:#FFD866">Secrets &amp; Certificates</li>
+                <li class="chip" data-group="security" style="--c:#FFD866">SAML 2.0 / OIDC</li>
+                <li class="chip" data-group="security" style="--c:#FFD866">Entra ID SSO</li>
+                <li class="chip" data-group="security" style="--c:#FFD866">TLS &amp; PKI</li>
+                <li class="chip" data-group="security" style="--c:#FFD866">SAST</li>
+                <li class="chip" data-group="security" style="--c:#FFD866">Vulnerability Management</li>
+                <li class="chip" data-group="security" style="--c:#FFD866">Kubernetes RBAC &amp; Network Policy</li>
                 <li class="chip" data-group="scripting" style="--c:#E7ECF2">PowerShell</li>
                 <li class="chip" data-group="scripting" style="--c:#E7ECF2">Python</li>
                 <li class="chip" data-group="scripting" style="--c:#E7ECF2">Bash</li>
                 <li class="chip" data-group="scripting" style="--c:#E7ECF2">Azure CLI</li>
+                <li class="chip" data-group="scripting" style="--c:#E7ECF2">SQL</li>
+                <li class="chip" data-group="scripting" style="--c:#E7ECF2">C# / .NET</li>
                 <li class="chip" data-group="scripting" style="--c:#E7ECF2">Java</li>
                 <li class="chip" data-group="scripting" style="--c:#E7ECF2">Kotlin</li>
                 <li class="chip" data-group="platform" style="--c:#7FE0D0">Internal Developer Platforms</li>
@@ -425,18 +467,55 @@
                 <li class="chip" data-group="platform" style="--c:#7FE0D0">Self-service Tooling</li>
                 <li class="chip" data-group="platform" style="--c:#7FE0D0">DevEx</li>
                 <li class="chip" data-group="platform" style="--c:#7FE0D0">SRE</li>
-                <li class="chip" data-group="platform" style="--c:#7FE0D0">Incident Response</li>
-            </ul>
+                            </ul>
+        </section>
+
+        <!-- ============ CERTS ============ -->
+        <section id="certs" class="section wrap">
+            <div class="sec-head">
+                <span class="mono sec-kicker">05 / CREDENTIALS</span>
+                <h2 class="sec-title">Certified, educated, multilingual.</h2>
+                <p class="sec-lead">Certifications, education and the languages I work in.</p>
+            </div>
+            <div class="creds-grid">
+                <article class="card cred" data-reveal style="--c:#FFD866">
+                    <h3 class="mono cred-title">certifications/</h3>
+                    <ul class="cred-list">
+                        <li><strong>AZ-400</strong> <span>Azure DevOps Engineer Expert</span></li>
+                        <li><strong>AZ-104</strong> <span>Azure Administrator</span></li>
+                        <li><strong>Cyber &amp; Information Security</strong></li>
+                        <li><strong>ITIL v3</strong> <span>Foundation</span></li>
+                        <li><strong>MCP</strong> <span>Microsoft Certified Professional</span></li>
+                    </ul>
+                </article>
+                <article class="card cred" data-reveal style="--c:#5CC8FF; --d:80ms">
+                    <h3 class="mono cred-title">education/</h3>
+                    <ul class="cred-list">
+                        <li><strong>B.Sc. Business Informatics</strong> <span>Wrocław University of Economics &middot; 2013 &ndash; 2017</span></li>
+                        <li><strong>IT Systems &amp; Network Administration</strong> <span>Regionalny Ośrodek Edukacji, Wrocław &middot; 2008 &ndash; 2010</span></li>
+                    </ul>
+                </article>
+                <article class="card cred" data-reveal style="--c:var(--accent); --d:160ms">
+                    <h3 class="mono cred-title">languages/</h3>
+                    <ul class="cred-list">
+                        <li><strong>English</strong> <span>Full professional</span></li>
+                        <li><strong>German</strong> <span>B1 / B2</span></li>
+                        <li><strong>Polish</strong> <span>Native</span></li>
+                        <li><strong>Italian</strong> <span>Elementary</span></li>
+                    </ul>
+                </article>
+            </div>
         </section>
 
         <!-- ============ CONTACT ============ -->
         <section id="contact" class="section wrap contact">
             <div class="contact-main">
-                <span class="mono sec-kicker">05 / CONTACT</span>
-                <h2 class="sec-title contact-title">Let's build something that doesn't page anyone at 3am.</h2>
+                <span class="mono sec-kicker">06 / CONTACT</span>
+                <h2 class="sec-title contact-title">Let's catch it in the logs before it pages anyone at 3am.</h2>
                 <p class="sec-lead">
-                    Open to DevOps &amp; cloud engineering opportunities, collaborations,
-                    or a good conversation about pipelines that don't flake.
+                    Based in Zürich and open to security engineering (detection &amp; response),
+                    DevSecOps and cloud security roles &mdash; or a good conversation about
+                    logging pipelines that don't drop events.
                 </p>
                 <div class="socials">
                     <div class="social-row">
@@ -479,12 +558,12 @@
                 <div class="term-body mono" aria-live="polite">
                     <div class="tl cmd">$ terraform plan -out=hire.tfplan</div>
                     <div class="tl out">&nbsp;</div>
-                    <div class="tl out"># team.cloud_engineer["michal"] will be created</div>
-                    <div class="tl ok">+ resource "team" "cloud_engineer" {</div>
+                    <div class="tl out"># team.security_engineer["michal"] will be created</div>
+                    <div class="tl ok">+ resource "team" "security_engineer" {</div>
                     <div class="tl ok">    + name   = "Michał Demczyszak"</div>
-                    <div class="tl ok">    + role   = "DevOps / Azure Architect"</div>
-                    <div class="tl ok">    + base   = "Switzerland"</div>
-                    <div class="tl ok">    + stack  = ["Azure", "Terraform", "Kubernetes"]</div>
+                    <div class="tl ok">    + role   = "Security Engineer — D&amp;R"</div>
+                    <div class="tl ok">    + base   = "Zürich, CH"</div>
+                    <div class="tl ok">    + stack  = ["Splunk", "SentinelOne", "Kubernetes", "Azure"]</div>
                     <div class="tl ok">    + coffee = true</div>
                     <div class="tl ok">  }</div>
                     <div class="tl out">&nbsp;</div>

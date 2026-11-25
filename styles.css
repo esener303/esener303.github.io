@@ -562,6 +562,20 @@ strong { color: var(--text); font-weight: 600; }
     padding: 2px 10px;
 }
 .commit-title { font-size: 20px; font-weight: 600; }
+.commit-org { color: var(--text-2); font-weight: 500; }
+.commit-date { margin-left: auto; font-size: 12px; color: var(--text-2); }
+
+/* ---------- Credentials ---------- */
+.creds-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
+    gap: 18px;
+}
+.cred { padding: 24px; border-top: 3px solid var(--c); }
+.cred-title { margin: 0 0 14px; font-size: 15px; color: var(--c); }
+.cred-list { margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 10px; }
+.cred-list li { display: flex; flex-direction: column; gap: 2px; font-size: 15px; }
+.cred-list span { font-size: 13px; color: var(--text-2); }
 .diff {
     margin: 4px 0 18px 16px;
     border: 1px solid var(--line);
@@ -1071,6 +1085,7 @@ body.panic main { animation: quake .18s infinite; }
     .impact-num { font-size: 30px; }
     .commit { padding-left: 36px; }
     .commit-title { font-size: 17px; }
+    .commit-date { margin-left: 0; flex-basis: 100%; }
     .diff { margin-left: 0; font-size: 12px; }
     .social-sub { display: none; }
     .audio-toggle { right: 16px; bottom: 16px; }

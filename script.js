@@ -5,9 +5,11 @@
 
     /* ---------- Typed role rotation ---------- */
     const roles = [
-        'DevOps & Cloud Engineer',
-        'Azure Cloud Solutions Architect',
-        'Cloud Security Engineer',
+        'Security Engineer — Detection & Response',
+        'SIEM & XDR: Splunk · SentinelOne',
+        'Security Logging Pipelines',
+        'Kubernetes & Cloud Security',
+        'DevSecOps & Azure Engineer',
         'GitOps & IaC Advocate',
         'Kubernetes Enthusiast',
         'iOS App Builder'

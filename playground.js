@@ -431,6 +431,7 @@
     const vmTrack = $('#vm-track');
     if (vmTrack) {
         const words = [
+            ['Splunk', '#FF9AD5'], ['SentinelOne', '#C4A1FF'], ['Fluent Bit', '#7FE0D0'], ['Azure Arc', '#5CC8FF'],
             ['Azure', '#5CC8FF'], ['Terraform', '#C4A1FF'], ['Kubernetes', '#5CC8FF'], ['Bicep', '#FFB86B'],
             ['GitHub Actions', '#7CF29A'], ['ArgoCD', '#FF7A7A'], ['Docker', '#5CC8FF'], ['Helm', '#7FE0D0'],
             ['Grafana', '#FFB86B'], ['PowerShell', '#5CC8FF'], ['Python', '#FFB86B'], ['Ansible', '#FF7A7A'],
@@ -553,17 +554,19 @@
         ['  hire / coffee     manage the crew', 'out'],
         ['  matrix            toggle the rain', 'out'],
         ['  contact           how to reach me', 'out'],
-        ['  cd <section>      jump to about, projects, experience, stack, contact', 'out'],
+        ['  cd <section>      jump to about, projects, experience, stack, certs, contact', 'out'],
         ['  clear             clean slate', 'out'],
         ['tip: drag a worker bot and throw it. they love that.', 'warn']
     ];
     const PROFILE = [
         '{',
         '  "name": "Michał",',
-        '  "role": "DevOps & Cloud Engineer",',
-        '  "experience": "Enterprise & Finance Infrastructure",',
-        '  "passion": ["DevSecOps", "Cloud Architecture", "GitOps", "Cloud Security Engineering"],',
-        '  "focus": ["Automation & CI/CD", "Kubernetes & AKS", "Infrastructure as Code", "Observability"],',
+        '  "role": "Security Engineer — Detection & Response",',
+        '  "base": "Zürich, CH",',
+        '  "experience": "10+ years · FINMA-regulated financial services",',
+        '  "detection": ["Splunk SIEM", "SentinelOne XDR", "Fluent Bit", "Azure Arc", "Log Analytics"],',
+        '  "focus": ["Security Logging", "Incident Response", "Kubernetes Security", "IAM & Secrets", "IaC"],',
+        '  "certs": ["AZ-400", "AZ-104", "Cyber & Information Security", "ITIL v3"],',
         '  "approach": "Bridging technical delivery with business outcomes",',
         '  "coffee": true',
         '}'
@@ -571,14 +574,16 @@
 
     const commands = {
         help: () => slow(HELP, 25),
-        whoami: () => print('Michał Demczyszak — DevOps Engineer & Azure Cloud Solutions Architect', 'ok'),
+        whoami: () => print('Michał Demczyszak — Security Engineer, Detection & Response (Zürich)', 'ok'),
         'cat profile.json': () => slow(PROFILE.map((l) => [l, 'ok']), 40),
         neofetch: () => slow([
             ['visitor@michaldemczyszak.com', 'ok'],
             ['----------------------------', 'out'],
-            ['role     DevOps Engineer · Azure Architect', 'out'],
-            ['base     Switzerland', 'out'],
-            ['cloud    Azure (mostly), AWS, GCP', 'out'],
+            ['role     Security Engineer · Detection & Response', 'out'],
+            ['base     Zürich, Switzerland', 'out'],
+            ['siem     Splunk · SentinelOne XDR', 'out'],
+            ['logs     Fluentd, Fluent Bit, Azure Arc, Log Analytics', 'out'],
+            ['cloud    Azure (mostly), AKS, Entra ID', 'out'],
             ['iac      Terraform, Bicep, Ansible', 'out'],
             ['ci/cd    GitHub Actions, Azure DevOps, ArgoCD', 'out'],
             ['apps     Alps Summits, Abfahrtli (iOS)', 'out'],
@@ -593,7 +598,7 @@
             ['helvetia-pixel/  digital agency, Lenzburg CH', 'out'],
             ["→ cd projects to see them", 'ok']
         ], 40),
-        ls: () => print('about/  projects/  experience/  stack/  contact/  profile.json', 'out'),
+        ls: () => print('about/  projects/  experience/  stack/  certs/  contact/  profile.json', 'out'),
         deploy: async () => {
             print('triggering pipeline on main…', 'warn');
             await wait(400);
@@ -663,7 +668,7 @@
                 print('nice try. root filesystem is read-only — immutable infra, remember?', 'err');
             } else if (lower.startsWith('cd ')) {
                 const target = lower.slice(3).replace(/[./~]/g, '');
-                if (['about', 'projects', 'experience', 'stack', 'contact'].includes(target)) { print('→ ' + target, 'ok'); scrollTo(target); }
+                if (['about', 'projects', 'experience', 'stack', 'certs', 'contact'].includes(target)) { print('→ ' + target, 'ok'); scrollTo(target); }
                 else print('cd: no such file or directory: ' + target, 'err');
             } else if (lower.startsWith('echo ')) {
                 print(cmd.slice(5), 'out');
